@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\A Newton Projects\\FitTrack_WPF\\Fit_Track_App\\Fit_Track_App\\Fit_Track_App.csproj",
+      "projectUniqueName": "C:\\GitHub\\A Newton Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Fit_Track_App\\Fit_Track_App.csproj",
       "projectName": "Fit_Track_App",
-      "projectPath": "C:\\GitHub\\A Newton Projects\\FitTrack_WPF\\Fit_Track_App\\Fit_Track_App\\Fit_Track_App.csproj",
+      "projectPath": "C:\\GitHub\\A Newton Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Fit_Track_App\\Fit_Track_App.csproj",
       "packagesPath": "C:\\Users\\thele\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub\\A Newton Projects\\FitTrack_WPF\\Fit_Track_App\\Fit_Track_App\\obj\\",
+      "outputPath": "C:\\GitHub\\A Newton Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Fit_Track_App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\thele\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,11 +1,5 @@
 ﻿namespace Fit_Track_App.Classes
 {
-    internal static class Data
-    {
-        public static List<DataManagement.User> Users { get; set; }
-        public static List<DataManagement.Workout> Workouts { get; set; }
-    }
-
     internal static class DataManagement
     {
         public abstract class Person(string userName, string email, string password)

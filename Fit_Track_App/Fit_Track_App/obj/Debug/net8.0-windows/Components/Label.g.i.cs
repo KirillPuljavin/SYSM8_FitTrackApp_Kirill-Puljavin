@@ -53,7 +53,7 @@ namespace Fit_Track_App.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Fit_Track_App;component/components/label.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Fit_Track_App;V1.0.0.0;component/components/label.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\Label.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

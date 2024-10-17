@@ -53,7 +53,7 @@ namespace Fit_Track_App {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Fit_Track_App;component/accountwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Fit_Track_App;V1.0.0.0;component/accountwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AccountWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
