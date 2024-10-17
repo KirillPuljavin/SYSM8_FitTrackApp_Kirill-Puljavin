@@ -1,4 +1,5 @@
 ﻿using Fit_Track_App.Classes;
+using mvvm_genomgång.MVVM;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -13,6 +14,7 @@ namespace Fit_Track_App.ViewModels
 
     public class UserViewModel : INotifyPropertyChanged
     {
+        // VARIABLES
         private string _userName;
         public string UserName
         {
@@ -23,7 +25,6 @@ namespace Fit_Track_App.ViewModels
                 OnPropertyChanged(nameof(UserName));
             }
         }
-
         private string _email;
         public string Email
         {
@@ -34,7 +35,6 @@ namespace Fit_Track_App.ViewModels
                 OnPropertyChanged(nameof(Email));
             }
         }
-
         private string _password;
         public string Password
         {
@@ -45,7 +45,6 @@ namespace Fit_Track_App.ViewModels
                 OnPropertyChanged(nameof(Password));
             }
         }
-
         private string _country;
         public string Country
         {
@@ -56,8 +55,6 @@ namespace Fit_Track_App.ViewModels
                 OnPropertyChanged(nameof(Country));
             }
         }
-
-        // Currently logged in user (bind to UI as needed)
         private DataManagement.User _loggedInUser;
         internal DataManagement.User LoggedInUser
         {
@@ -69,13 +66,18 @@ namespace Fit_Track_App.ViewModels
             }
         }
 
+        // COMMANDS
+        private RelayCommand _loginCommand;
+
+        // METHODS
         public UserViewModel()
         {
             Data.Users.Add(new DataManagement.User("admin", "admin@fittrack.com", "password", "Sweden", true));
             Data.Users.Add(new DataManagement.User("user", "user@fittrack.com", "password", "Sweden", false));
+
+            _loginCommand = new RelayCommand(Register);
         }
 
-        // Login method to authenticate users
         public bool Login()
         {
             var user = Data.Users.FirstOrDefault(u => u.UserName == UserName && u.Password == Password);
@@ -92,7 +94,6 @@ namespace Fit_Track_App.ViewModels
             }
         }
 
-        // Register method to add new users
         public void Register()
         {
             if (Data.Users.Any(u => u.UserName == UserName))
@@ -107,7 +108,6 @@ namespace Fit_Track_App.ViewModels
             }
         }
 
-        // Implement INotifyPropertyChanged to notify the view when properties change
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {
