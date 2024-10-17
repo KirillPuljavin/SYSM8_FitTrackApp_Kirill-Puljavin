@@ -1,0 +1,10 @@
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\AccountWindow.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Components\Button.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Components\Label.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\LoginPage.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\RegisterAccountPage.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\StartPage.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\App.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App_MarkupCompile.cache
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App_MarkupCompile.lref
