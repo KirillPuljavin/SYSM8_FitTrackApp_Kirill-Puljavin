@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\thele\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\thele\\.nuget\\packages"
+      "C:\\Users\\SFG\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\SFG\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,

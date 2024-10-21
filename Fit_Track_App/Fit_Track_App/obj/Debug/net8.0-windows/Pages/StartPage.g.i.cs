@@ -53,7 +53,7 @@ namespace Fit_Track_App.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Fit_Track_App;V1.0.0.0;component/pages/startpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Fit_Track_App;component/pages/startpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\StartPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
