@@ -41,6 +41,13 @@
                     <Setter Property="Background" Value="#B22222" />
                     <!--  Darker Red for Hover  -->
                     <Setter Property="BorderBrush" Value="#8B0000" />
+                    <Setter Property="Foreground" Value="White" />
+                    <!--  Maintain text visibility  -->
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#A52A2A" />
+                    <!--  Even Darker Red when Pressed  -->
+                    <Setter Property="BorderBrush" Value="#8B0000" />
                 </Trigger>
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>

@@ -1,5 +1,4 @@
 ﻿using Fit_Track_App.Classes;
-using Fit_Track_App.Pages;
 using System.Windows;
 using System.Windows.Input;
 
@@ -16,9 +15,9 @@ namespace Fit_Track_App.ViewModels
 
         private void OnBack(object parameter)
         {
-            if (Application.Current.MainWindow is MainWindow window)
+            if (Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w is AccountWindow) is AccountWindow accountWindow)
             {
-                window.MainFrame.Navigate(new StartPage());
+                accountWindow.Close();
             }
         }
     }

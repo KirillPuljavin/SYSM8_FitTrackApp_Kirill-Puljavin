@@ -27,10 +27,8 @@ namespace Fit_Track_App.Classes
 
         private void OnNavigateToRegisterPage(object parameter)
         {
-            if (Application.Current.MainWindow is MainWindow window)
-            {
-                window.MainFrame.Navigate(new RegisterAccountPage());
-            }
+            AccountWindow accountWindow = new AccountWindow();
+            accountWindow.ShowDialog();  // Opens as a dialog; user has to close it to return to the main window
         }
 
         private void OnNavigateToStartPage(object parameter)

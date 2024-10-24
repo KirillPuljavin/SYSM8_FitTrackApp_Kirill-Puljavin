@@ -18,10 +18,9 @@ namespace Fit_Track_App.ViewModels
 
         private void OnSignIn(object parameter)
         {
-            if (Application.Current.MainWindow is MainWindow window)
-            {
-                window.MainFrame.Navigate(new RegisterAccountPage());
-            }
+            var accountWindow = new AccountWindow();
+            accountWindow.Content = new RegisterAccountPage();
+            accountWindow.Show();
         }
 
         private void OnLogIn(object parameter)
