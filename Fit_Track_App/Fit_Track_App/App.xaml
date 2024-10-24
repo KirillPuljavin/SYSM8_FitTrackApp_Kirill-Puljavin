@@ -8,10 +8,14 @@
         <!--  Define Colors as Resources  -->
         <Color x:Key="CrimsonColor">#DC143C</Color>
         <Color x:Key="LightGrayColor">#D3D3D3</Color>
+        <Color x:Key="GrayColor">#808080</Color>
+        <Color x:Key="BlackColor">#000000</Color>
 
         <!--  Define SolidColorBrushes to Use Colors in Elements  -->
         <SolidColorBrush x:Key="CrimsonBrush" Color="{StaticResource CrimsonColor}" />
         <SolidColorBrush x:Key="LightGrayBrush" Color="{StaticResource LightGrayColor}" />
+        <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource GrayColor}" />
+        <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource BlackColor}" />
 
         <!--  Unified style for Buttons  -->
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -23,26 +27,9 @@
             <Setter Property="Width" Value="260" />
             <Setter Property="Margin" Value="10" />
             <Setter Property="Padding" Value="10,5" />
-            <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
+            <Setter Property="BorderBrush" Value="#8B0000" />
             <Setter Property="BorderThickness" Value="2" />
             <Setter Property="Cursor" Value="Hand" />
-            <!--  Disable default button Chrome effects  -->
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="5">
-                            <ContentPresenter
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                TextElement.Foreground="{TemplateBinding Foreground}" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
             <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
             <Setter Property="RenderTransform">
                 <Setter.Value>
@@ -54,9 +41,8 @@
                     <Setter Property="Background" Value="#B22222" />
                     <!--  Darker Red for Hover  -->
                     <Setter Property="BorderBrush" Value="#8B0000" />
-                    <!--  Slightly Darker Border  -->
                 </Trigger>
-                <EventTrigger RoutedEvent="MouseEnter">
+                <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation
@@ -70,7 +56,7 @@
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
-                <EventTrigger RoutedEvent="MouseLeave">
+                <EventTrigger RoutedEvent="Button.MouseLeave">
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation
@@ -84,6 +70,50 @@
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--  Unified style for TextBoxes  -->
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Margin" Value="10,10,10,10" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
+                </Trigger>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Foreground" Value="{StaticResource BlackBrush}" />
+                    <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--  Unified style for PasswordBoxes  -->
+        <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Margin" Value="10,10,10,10" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
+                </Trigger>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Foreground" Value="{StaticResource BlackBrush}" />
+                    <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
+                </Trigger>
             </Style.Triggers>
         </Style>
 

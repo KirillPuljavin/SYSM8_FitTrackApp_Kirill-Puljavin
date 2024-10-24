@@ -1,5 +1,4 @@
 ﻿using Fit_Track_App.Classes;
-using mvvm_genomgång.MVVM;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;

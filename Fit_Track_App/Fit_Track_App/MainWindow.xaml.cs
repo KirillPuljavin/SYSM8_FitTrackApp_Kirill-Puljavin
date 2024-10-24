@@ -1,4 +1,4 @@
-﻿using Fit_Track_App.ViewModels;
+﻿using Fit_Track_App.Classes;
 using System.Windows;
 
 namespace Fit_Track_App
@@ -8,7 +8,7 @@ namespace Fit_Track_App
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new UserViewModel();
+            DataContext = new MainViewModel();
             MainFrame.Navigate(new Pages.StartPage());
         }
     }

@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
-namespace mvvm_genomgång.MVVM
+namespace Fit_Track_App.Classes
 {
     public class RelayCommand : ICommand
     {

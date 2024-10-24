@@ -1,5 +1,5 @@
-﻿using Fit_Track_App.Pages;
-using mvvm_genomgång.MVVM;
+﻿using Fit_Track_App.Classes;
+using Fit_Track_App.Pages;
 using System.Windows;
 using System.Windows.Input;
 
@@ -26,7 +26,10 @@ namespace Fit_Track_App.ViewModels
 
         private void OnLogIn(object parameter)
         {
-            // Logic to handle Log In
+            if (Application.Current.MainWindow is MainWindow window)
+            {
+                window.MainFrame.Navigate(new LoginPage());
+            }
         }
     }
 }
