@@ -8,19 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\SFG\\.nuget\\packages\\": {}
+    "C:\\Users\\thele\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Fit_Track_App\\Fit_Track_App.csproj",
+      "projectUniqueName": "C:\\GitHub\\A Newton Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Fit_Track_App\\Fit_Track_App.csproj",
       "projectName": "Fit_Track_App",
-      "projectPath": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Fit_Track_App\\Fit_Track_App.csproj",
-      "packagesPath": "C:\\Users\\SFG\\.nuget\\packages\\",
-      "outputPath": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Fit_Track_App\\obj\\",
+      "projectPath": "C:\\GitHub\\A Newton Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Fit_Track_App\\Fit_Track_App.csproj",
+      "packagesPath": "C:\\Users\\thele\\.nuget\\packages\\",
+      "outputPath": "C:\\GitHub\\A Newton Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Fit_Track_App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SFG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\thele\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -70,7 +70,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
