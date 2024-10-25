@@ -1,0 +1,70 @@
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\AccountWindow.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Components\Button.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Components\Label.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\LoginPage.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\RegisterAccountPage.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\StartPage.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\App.g.cs
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App_MarkupCompile.cache
+C:\GitHub\A Newton Projects\FitTrack_WPF\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App_MarkupCompile.lref
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\bin\Debug\net8.0-windows\Fit_Track_App.exe
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\bin\Debug\net8.0-windows\Fit_Track_App.deps.json
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\bin\Debug\net8.0-windows\Fit_Track_App.runtimeconfig.json
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\bin\Debug\net8.0-windows\Fit_Track_App.dll
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\bin\Debug\net8.0-windows\Fit_Track_App.pdb
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\AccountWindow.g.cs
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\LoginPage.g.cs
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\RegisterAccountPage.g.cs
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\StartPage.g.cs
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\App.g.cs
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App_MarkupCompile.cache
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App_MarkupCompile.lref
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\AccountWindow.baml
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\MainWindow.baml
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\LoginPage.baml
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\RegisterAccountPage.baml
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\StartPage.baml
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.g.resources
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.AssemblyInfoInputs.cache
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.AssemblyInfo.cs
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.csproj.CoreCompileInputs.cache
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.sourcelink.json
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.dll
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\refint\Fit_Track_App.dll
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.pdb
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.genruntimeconfig.cache
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\ref\Fit_Track_App.dll
+C:\GitHub\A Newton Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\App.baml
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\AccountWindow.g.cs
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\MainWindow.g.cs
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\LoginPage.g.cs
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\RegisterAccountPage.g.cs
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\StartPage.g.cs
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\App.g.cs
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App_MarkupCompile.cache
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App_MarkupCompile.lref
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.dll
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\refint\Fit_Track_App.dll
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\bin\Debug\net8.0-windows\Fit_Track_App.exe
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\bin\Debug\net8.0-windows\Fit_Track_App.deps.json
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\bin\Debug\net8.0-windows\Fit_Track_App.runtimeconfig.json
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\bin\Debug\net8.0-windows\Fit_Track_App.dll
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\bin\Debug\net8.0-windows\Fit_Track_App.pdb
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\App.baml
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\AccountWindow.baml
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\MainWindow.baml
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\LoginPage.baml
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\RegisterAccountPage.baml
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Pages\StartPage.baml
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.g.resources
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.GeneratedMSBuildEditorConfig.editorconfig
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.AssemblyInfoInputs.cache
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.AssemblyInfo.cs
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.csproj.CoreCompileInputs.cache
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.sourcelink.json
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.pdb
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\Fit_Track_App.genruntimeconfig.cache
+S:\Github Projects\SYSM8_FitTrackApp_Kirill-Puljavin\Fit_Track_App\Fit_Track_App\obj\Debug\net8.0-windows\ref\Fit_Track_App.dll
