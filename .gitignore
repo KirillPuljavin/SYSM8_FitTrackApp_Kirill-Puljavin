@@ -17,20 +17,20 @@
 mono_crash.*
 
 # Build results
-Fit_Track_App/[Dd]ebug/
-Fit_Track_App/[Dd]ebugPublic/
-Fit_Track_App/[Rr]elease/
-Fit_Track_App/[Rr]eleases/
-Fit_Track_App/x64/
-Fit_Track_App/x86/
-Fit_Track_App/[Ww][Ii][Nn]32/
-Fit_Track_App/[Aa][Rr][Mm]/
-Fit_Track_App/[Aa][Rr][Mm]64/
-Fit_Track_App/bld/
-Fit_Track_App/[Bb]in/
-Fit_Track_App/[Oo]bj/
-Fit_Track_App/[Ll]og/
-Fit_Track_App/[Ll]ogs/
+Fit_Track_App/Fit_Track_App/[Dd]ebug/
+Fit_Track_App/Fit_Track_App/[Dd]ebugPublic/
+Fit_Track_App/Fit_Track_App/[Rr]elease/
+Fit_Track_App/Fit_Track_App/[Rr]eleases/
+Fit_Track_App/Fit_Track_App/x64/
+Fit_Track_App/Fit_Track_App/x86/
+Fit_Track_App/Fit_Track_App/[Ww][Ii][Nn]32/
+Fit_Track_App/Fit_Track_App/[Aa][Rr][Mm]/
+Fit_Track_App/Fit_Track_App/[Aa][Rr][Mm]64/
+Fit_Track_App/Fit_Track_App/bld/
+Fit_Track_App/Fit_Track_App/[Bb]in/
+Fit_Track_App/Fit_Track_App/[Oo]bj/
+Fit_Track_App/Fit_Track_App/[Ll]og/
+Fit_Track_App/Fit_Track_App/[Ll]ogs/
 
 # Visual Studio 2015/2017 cache/options directory
 Fit_Track_App/.vs/
