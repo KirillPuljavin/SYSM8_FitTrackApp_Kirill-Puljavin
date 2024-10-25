@@ -8,7 +8,7 @@ namespace Fit_Track_App.Pages
         public StartPage()
         {
             InitializeComponent();
-            this.DataContext = new StartPageViewModel();
+            DataContext = new StartPageViewModel();
         }
     }
 }

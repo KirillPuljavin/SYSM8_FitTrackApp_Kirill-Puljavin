@@ -5,15 +5,24 @@ using System.Windows;
 
 namespace Fit_Track_App.ViewModels
 {
-    internal static class Data
-    {
-        internal static ObservableCollection<DataManagement.User> Users { get; set; } = new ObservableCollection<DataManagement.User>();
-        internal static ObservableCollection<DataManagement.Workout> Workouts { get; set; } = new ObservableCollection<DataManagement.Workout>();
-    }
-
     public class UserViewModel : INotifyPropertyChanged
     {
-        // VARIABLES
+        private static UserViewModel _instance;
+        public static UserViewModel Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new UserViewModel();
+                }
+                return _instance;
+            }
+        }
+
+        internal ObservableCollection<DataManagement.User> Users { get; set; }
+        internal ObservableCollection<DataManagement.Workout> Workouts { get; set; }
+
         private string _userName;
         public string UserName
         {
@@ -24,6 +33,7 @@ namespace Fit_Track_App.ViewModels
                 OnPropertyChanged(nameof(UserName));
             }
         }
+
         private string _email;
         public string Email
         {
@@ -34,6 +44,7 @@ namespace Fit_Track_App.ViewModels
                 OnPropertyChanged(nameof(Email));
             }
         }
+
         private string _password;
         public string Password
         {
@@ -44,6 +55,7 @@ namespace Fit_Track_App.ViewModels
                 OnPropertyChanged(nameof(Password));
             }
         }
+
         private string _country;
         public string Country
         {
@@ -54,6 +66,7 @@ namespace Fit_Track_App.ViewModels
                 OnPropertyChanged(nameof(Country));
             }
         }
+
         private DataManagement.User _loggedInUser;
         internal DataManagement.User LoggedInUser
         {
@@ -65,21 +78,23 @@ namespace Fit_Track_App.ViewModels
             }
         }
 
-        // COMMANDS
         private RelayCommand _loginCommand;
 
-        // METHODS
-        public UserViewModel()
+        private UserViewModel()
         {
-            Data.Users.Add(new DataManagement.User("admin", "admin@fittrack.com", "password", "Sweden", true));
-            Data.Users.Add(new DataManagement.User("user", "user@fittrack.com", "password", "Sweden", false));
+            Users = new ObservableCollection<DataManagement.User>
+            {
+                new DataManagement.User("admin", "admin@fittrack.com", "password", "Sweden", true),
+                new DataManagement.User("user", "user@fittrack.com", "password", "Sweden", false)
+            };
 
+            Workouts = new ObservableCollection<DataManagement.Workout>();
             _loginCommand = new RelayCommand(Register);
         }
 
         public bool Login()
         {
-            var user = Data.Users.FirstOrDefault(u => u.UserName == UserName && u.Password == Password);
+            var user = Users.FirstOrDefault(u => u.UserName == UserName && u.Password == Password);
             if (user != null)
             {
                 LoggedInUser = user;
@@ -95,14 +110,14 @@ namespace Fit_Track_App.ViewModels
 
         public void Register()
         {
-            if (Data.Users.Any(u => u.UserName == UserName))
+            if (Users.Any(u => u.UserName == UserName))
             {
                 MessageBox.Show("Username already exists.");
             }
             else
             {
                 var newUser = new DataManagement.User(UserName, Email, Password, Country, false);
-                Data.Users.Add(newUser);
+                Users.Add(newUser);
                 MessageBox.Show("User registered successfully.");
             }
         }

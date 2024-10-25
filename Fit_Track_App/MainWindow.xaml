@@ -17,6 +17,6 @@
             x:Name="MainFrame"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
-            NavigationUIVisibility="Hidden"/>
+            NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

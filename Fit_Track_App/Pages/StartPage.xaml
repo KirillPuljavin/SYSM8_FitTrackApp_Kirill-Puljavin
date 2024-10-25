@@ -32,12 +32,12 @@
             VerticalAlignment="Center"
             Orientation="Vertical">
             <Button
-                Command="{Binding SignInCommand}"
-                Content="Sign In"
-                Style="{StaticResource ButtonStyle}" />
-            <Button
                 Command="{Binding LogInCommand}"
                 Content="Log In"
+                Style="{StaticResource ButtonStyle}" />
+            <Button
+                Command="{Binding SignInCommand}"
+                Content="Sign In"
                 Style="{StaticResource ButtonStyle}" />
         </StackPanel>
     </Grid>

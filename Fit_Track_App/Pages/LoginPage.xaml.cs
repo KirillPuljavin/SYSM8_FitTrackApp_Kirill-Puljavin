@@ -13,8 +13,7 @@ namespace Fit_Track_App.Pages
             DataContext = new LoginPageViewModel();
         }
 
-
-        // Username Placeholder Logic
+        ///// Placeholder Logic
         private void UsernameTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             if (UsernameTextBox.Text == "Username")
@@ -23,7 +22,6 @@ namespace Fit_Track_App.Pages
                 UsernameTextBox.Foreground = new SolidColorBrush(Colors.Black);
             }
         }
-
         private void UsernameTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(UsernameTextBox.Text))
@@ -32,8 +30,6 @@ namespace Fit_Track_App.Pages
                 UsernameTextBox.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
-        // Password Placeholder Logic
         private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
         {
             if (PasswordBox.Tag.ToString() == "Password" && PasswordBox.Password == "")
@@ -42,7 +38,6 @@ namespace Fit_Track_App.Pages
                 PasswordBox.Tag = "";
             }
         }
-
         private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(PasswordBox.Password))
