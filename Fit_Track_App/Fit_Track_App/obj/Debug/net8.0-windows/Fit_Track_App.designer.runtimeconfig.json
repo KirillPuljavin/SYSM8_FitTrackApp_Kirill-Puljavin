@@ -12,7 +12,7 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\thele\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\SFG\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\thele\\.nuget\\packages"
     ],
     "configProperties": {

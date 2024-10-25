@@ -32,7 +32,6 @@
             VerticalAlignment="Center"
             Orientation="Vertical">
 
-            <!--  Username TextBox  -->
             <TextBox
                 x:Name="UsernameTextBox"
                 GotFocus="UsernameTextBox_GotFocus"
@@ -40,7 +39,6 @@
                 Style="{StaticResource TextBoxStyle}"
                 Text="Username" />
 
-            <!--  Password Box  -->
             <PasswordBox
                 x:Name="PasswordBox"
                 GotFocus="PasswordBox_GotFocus"
@@ -49,7 +47,7 @@
                 Tag="Password" />
         </StackPanel>
 
-        <!--  Back Button Container  -->
+        <!--  Back Button  -->
         <StackPanel
             Grid.Row="2"
             HorizontalAlignment="Center"
