@@ -1,5 +1,5 @@
-﻿using Fit_Track_App.Classes;
-using System.Windows;
+﻿using System.Windows;
+using Fit_Track_App.Classes;
 
 namespace Fit_Track_App
 {
