@@ -2,9 +2,12 @@
     x:Class="Fit_Track_App.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Fit_Track_App.Classes"
     StartupUri="MainWindow.xaml">
 
     <Application.Resources>
+        <local:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
+
         <!--  Define Colors as Resources  -->
         <Color x:Key="CrimsonColor">#DC143C</Color>
         <Color x:Key="LightGrayColor">#D3D3D3</Color>

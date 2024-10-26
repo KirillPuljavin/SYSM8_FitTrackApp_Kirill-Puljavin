@@ -1,47 +1,70 @@
-﻿using Fit_Track_App.Classes;
+﻿using Fit_Track_App;
+using Fit_Track_App.Classes;
 using Fit_Track_App.Pages;
+using Fit_Track_App.ViewModels;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Fit_Track_App.ViewModels
+public class LoginPageViewModel : ViewModelBase
 {
-    public class LoginPageViewModel : ViewModelBase
+    public ICommand LoginCommand { get; }
+    public ICommand BackCommand { get; }
+
+    public string UserName
     {
-        public ICommand LoginCommand { get; }
-        public ICommand BackCommand { get; }
+        get => UserViewModel.Instance.UserName;
+        set => UserViewModel.Instance.UserName = value;
+    }
 
-        public string UserName
+    public string Password
+    {
+        get => UserViewModel.Instance.Password;
+        set => UserViewModel.Instance.Password = value;
+    }
+
+    private string _loginFeedback;
+    public string LoginFeedback
+    {
+        get => _loginFeedback;
+        set
         {
-            get => UserViewModel.Instance.UserName;
-            set => UserViewModel.Instance.UserName = value;
+            _loginFeedback = value;
+            OnPropertyChanged(nameof(LoginFeedback));
         }
+    }
 
-        public string Password
+    public LoginPageViewModel()
+    {
+        LoginCommand = new RelayCommand(OnLogin);
+        BackCommand = new RelayCommand(OnBack);
+    }
+
+    private void OnLogin(object parameter)
+    {
+        var user = UserViewModel.Instance.Users
+            .FirstOrDefault(u => u.UserName == UserName);
+
+        if (user == null)
         {
-            get => UserViewModel.Instance.Password;
-            set => UserViewModel.Instance.Password = value;
+            LoginFeedback = "User does not exist.";
         }
-
-        public LoginPageViewModel()
+        else if (user.Password != Password)
         {
-            LoginCommand = new RelayCommand(OnLogin);
-            BackCommand = new RelayCommand(OnBack);
+            LoginFeedback = "Incorrect password.";
         }
-
-        private void OnLogin(object parameter)
+        else
         {
-            if (UserViewModel.Instance.Login())
-            {
-                // Navigate to the next page
-            }
+            UserViewModel.Instance.LoggedInUser = user;
+            MessageBox.Show($"Welcome, {user.UserName}!");
+            LoginFeedback = string.Empty;
         }
+    }
 
-        private void OnBack(object parameter)
+    private void OnBack(object parameter)
+    {
+        if (Application.Current.MainWindow is MainWindow window)
         {
-            if (Application.Current.MainWindow is MainWindow window)
-            {
-                window.MainFrame.Navigate(new StartPage());
-            }
+            window.MainFrame.Navigate(new StartPage());
         }
     }
 }

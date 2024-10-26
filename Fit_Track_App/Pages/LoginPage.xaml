@@ -35,16 +35,24 @@
             <TextBox
                 x:Name="UsernameTextBox"
                 GotFocus="UsernameTextBox_GotFocus"
+                Loaded="UsernameTextBox_Loaded"
                 LostFocus="UsernameTextBox_LostFocus"
                 Style="{StaticResource TextBoxStyle}"
-                Text="Username" />
+                Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
 
             <PasswordBox
                 x:Name="PasswordBox"
                 GotFocus="PasswordBox_GotFocus"
                 LostFocus="PasswordBox_LostFocus"
+                PasswordChanged="PasswordBox_PasswordChanged"
                 Style="{StaticResource PasswordBoxStyle}"
                 Tag="Password" />
+
+            <TextBlock
+                Foreground="Red"
+                Text="{Binding LoginFeedback}"
+                Visibility="{Binding LoginFeedback, Converter={StaticResource StringToVisibilityConverter}}" />
+
         </StackPanel>
 
         <!--  Back Button  -->
@@ -52,6 +60,12 @@
             Grid.Row="2"
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
+
+            <Button
+                Command="{Binding LoginCommand}"
+                Content="Login"
+                Style="{StaticResource ButtonStyle}" />
+
             <Button
                 Command="{Binding BackCommand}"
                 Content="Back"

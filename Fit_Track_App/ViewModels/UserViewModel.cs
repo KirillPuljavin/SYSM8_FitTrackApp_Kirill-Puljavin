@@ -7,7 +7,7 @@ namespace Fit_Track_App.ViewModels
 {
     public class UserViewModel : INotifyPropertyChanged
     {
-        private static UserViewModel _instance;
+        private static UserViewModel? _instance;
         public static UserViewModel Instance
         {
             get

@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Fit_Track_App"
     xmlns:local1="clr-namespace:Fit_Track_App.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
+    Title="Fit Tracker PRO"
     Width="1920"
     Height="1080"
     WindowState="Maximized"
