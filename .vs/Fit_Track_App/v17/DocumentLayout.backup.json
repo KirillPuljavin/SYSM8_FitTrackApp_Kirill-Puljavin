@@ -3,52 +3,56 @@
   "WorkspaceRootPath": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\pages\\workoutspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\pages\\workoutspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\classes\\datamanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\classes\\datamanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\pages\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\pages\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\pages\\registeraccountpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\pages\\registeraccountpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\classes\\navigationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\classes\\navigationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\classes\\viewmodelhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\classes\\viewmodelhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\viewmodels\\loginpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\viewmodels\\loginpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\pages\\startpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\pages\\startpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\pages\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\pages\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\viewmodels\\registeraccountpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\viewmodels\\registeraccountpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\viewmodels\\startpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\viewmodels\\startpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\viewmodels\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\viewmodels\\userviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\pages\\registeraccountpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\pages\\registeraccountpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\classes\\navigationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\classes\\navigationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\classes\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\classes\\services.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\classes\\datamanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\classes\\datamanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\classes\\viewmodelhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\classes\\viewmodelhelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\pages\\startpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\pages\\startpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|s:\\github projects\\sysm8_fittrackapp_kirill-puljavin\\fit_track_app\\viewmodels\\startpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03FCC8F4-9C2D-4A61-BD60-16EE5B1D3B09}|Fit_Track_App\\Fit_Track_App.csproj|solutionrelative:fit_track_app\\viewmodels\\startpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -57,8 +61,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 277,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 235,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,47 +74,73 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "DataManagement.cs",
               "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Classes\\DataManagement.cs",
               "RelativeDocumentMoniker": "Fit_Track_App\\Classes\\DataManagement.cs",
               "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Classes\\DataManagement.cs",
               "RelativeToolTip": "Fit_Track_App\\Classes\\DataManagement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-18T15:47:46.045Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "NavigationHandler.cs",
               "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Classes\\NavigationHandler.cs",
               "RelativeDocumentMoniker": "Fit_Track_App\\Classes\\NavigationHandler.cs",
               "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Classes\\NavigationHandler.cs",
               "RelativeToolTip": "Fit_Track_App\\Classes\\NavigationHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T11:30:47.409Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "ViewModelHelpers.cs",
               "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Classes\\ViewModelHelpers.cs",
               "RelativeDocumentMoniker": "Fit_Track_App\\Classes\\ViewModelHelpers.cs",
               "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Classes\\ViewModelHelpers.cs",
               "RelativeToolTip": "Fit_Track_App\\Classes\\ViewModelHelpers.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T11:30:48.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserViewModel.cs",
+              "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\ViewModels\\UserViewModel.cs",
+              "RelativeDocumentMoniker": "Fit_Track_App\\ViewModels\\UserViewModel.cs",
+              "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\ViewModels\\UserViewModel.cs",
+              "RelativeToolTip": "Fit_Track_App\\ViewModels\\UserViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T11:30:31.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Services.cs",
+              "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Classes\\Services.cs",
+              "RelativeDocumentMoniker": "Fit_Track_App\\Classes\\Services.cs",
+              "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Classes\\Services.cs",
+              "RelativeToolTip": "Fit_Track_App\\Classes\\Services.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAiwEIAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T22:52:57.085Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 313,
+          "DockedWidth": 301,
           "SelectedChildIndex": 3,
           "Children": [
             {
@@ -127,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "App.xaml",
               "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\App.xaml",
               "RelativeDocumentMoniker": "Fit_Track_App\\App.xaml",
@@ -139,73 +169,51 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserViewModel.cs",
-              "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\ViewModels\\UserViewModel.cs",
-              "RelativeDocumentMoniker": "Fit_Track_App\\ViewModels\\UserViewModel.cs",
-              "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\ViewModels\\UserViewModel.cs",
-              "RelativeToolTip": "Fit_Track_App\\ViewModels\\UserViewModel.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAiwEwAAAA4AAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "LoginPage.xaml.cs",
+              "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\LoginPage.xaml.cs",
+              "RelativeDocumentMoniker": "Fit_Track_App\\Pages\\LoginPage.xaml.cs",
+              "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\LoginPage.xaml.cs",
+              "RelativeToolTip": "Fit_Track_App\\Pages\\LoginPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T11:30:31.23Z"
+              "WhenOpened": "2024-10-27T23:29:47.158Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
+              "Title": "LoginPageViewModel.cs",
+              "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\ViewModels\\LoginPageViewModel.cs",
+              "RelativeDocumentMoniker": "Fit_Track_App\\ViewModels\\LoginPageViewModel.cs",
+              "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\ViewModels\\LoginPageViewModel.cs",
+              "RelativeToolTip": "Fit_Track_App\\ViewModels\\LoginPageViewModel.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T23:32:12.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "StartPageViewModel.cs",
               "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\ViewModels\\StartPageViewModel.cs",
               "RelativeDocumentMoniker": "Fit_Track_App\\ViewModels\\StartPageViewModel.cs",
               "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\ViewModels\\StartPageViewModel.cs",
               "RelativeToolTip": "Fit_Track_App\\ViewModels\\StartPageViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T13:52:34.46Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RegisterAccountPageViewModel.cs",
-              "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\ViewModels\\RegisterAccountPageViewModel.cs",
-              "RelativeDocumentMoniker": "Fit_Track_App\\ViewModels\\RegisterAccountPageViewModel.cs",
-              "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\ViewModels\\RegisterAccountPageViewModel.cs",
-              "RelativeToolTip": "Fit_Track_App\\ViewModels\\RegisterAccountPageViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T17:32:44.046Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RegisterAccountPage.xaml.cs",
-              "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\RegisterAccountPage.xaml.cs",
-              "RelativeDocumentMoniker": "Fit_Track_App\\Pages\\RegisterAccountPage.xaml.cs",
-              "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\RegisterAccountPage.xaml.cs",
-              "RelativeToolTip": "Fit_Track_App\\Pages\\RegisterAccountPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T17:32:57.929Z",
-              "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 149,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 204,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RegisterAccountPage.xaml",
-              "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\RegisterAccountPage.xaml",
-              "RelativeDocumentMoniker": "Fit_Track_App\\Pages\\RegisterAccountPage.xaml",
-              "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\RegisterAccountPage.xaml",
-              "RelativeToolTip": "Fit_Track_App\\Pages\\RegisterAccountPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-26T17:30:47.026Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Fit_Track_App\\MainWindow.xaml",
@@ -217,18 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoginPage.xaml",
-              "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\LoginPage.xaml",
-              "RelativeDocumentMoniker": "Fit_Track_App\\Pages\\LoginPage.xaml",
-              "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\LoginPage.xaml",
-              "RelativeToolTip": "Fit_Track_App\\Pages\\LoginPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-18T16:08:50.202Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "StartPage.xaml",
               "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\StartPage.xaml",
               "RelativeDocumentMoniker": "Fit_Track_App\\Pages\\StartPage.xaml",
@@ -236,6 +233,30 @@
               "RelativeToolTip": "Fit_Track_App\\Pages\\StartPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-10-18T16:10:00.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginPage.xaml",
+              "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\LoginPage.xaml",
+              "RelativeDocumentMoniker": "Fit_Track_App\\Pages\\LoginPage.xaml",
+              "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\LoginPage.xaml",
+              "RelativeToolTip": "Fit_Track_App\\Pages\\LoginPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-27T23:29:32.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WorkoutsPage.xaml",
+              "DocumentMoniker": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\WorkoutsPage.xaml",
+              "RelativeDocumentMoniker": "Fit_Track_App\\Pages\\WorkoutsPage.xaml",
+              "ToolTip": "S:\\Github Projects\\SYSM8_FitTrackApp_Kirill-Puljavin\\Fit_Track_App\\Pages\\WorkoutsPage.xaml",
+              "RelativeToolTip": "Fit_Track_App\\Pages\\WorkoutsPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-27T23:20:52.968Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="Fit_Track_App.Pages.WorkoutsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WorkoutsPage">
+
+    <Grid Background="{StaticResource LightGrayBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  Page Title  -->
+        <StackPanel
+            Grid.Row="0"
+            Margin="0,20,0,10"
+            HorizontalAlignment="Center">
+            <TextBlock Style="{StaticResource WorkoutsPageTitleStyle}" Text="Manage Your Workouts" />
+        </StackPanel>
+
+        <!--  Workout List  -->
+        <ListBox
+            Grid.Row="1"
+            Margin="20"
+            DisplayMemberPath="Summary"
+            ItemContainerStyle="{StaticResource WorkoutListBoxItemStyle}"
+            ItemsSource="{Binding Workouts}"
+            SelectedItem="{Binding SelectedWorkout}" />
+
+        <!--  Workout Input Fields  -->
+        <StackPanel
+            Grid.Row="2"
+            Margin="20"
+            HorizontalAlignment="Center"
+            Orientation="Vertical">
+
+            <TextBlock Style="{StaticResource WorkoutsPageSubtitleStyle}" Text="Add New Workout" />
+
+            <DatePicker
+                DisplayDate="2024-01-01"
+                SelectedDate="{Binding NewWorkoutDate}"
+                Style="{StaticResource WorkoutsPageDatePickerStyle}" />
+
+            <TextBox Style="{StaticResource WorkoutsPageTextBoxStyle}" Text="{Binding NewWorkoutType}" />
+
+            <TextBox Style="{StaticResource WorkoutsPageTextBoxStyle}" Text="{Binding NewWorkoutDuration}" />
+
+            <TextBox Style="{StaticResource WorkoutsPageTextBoxStyle}" Text="{Binding NewWorkoutCalories}" />
+
+            <TextBox Style="{StaticResource WorkoutsPageTextBoxStyle}" Text="{Binding NewWorkoutNotes}" />
+        </StackPanel>
+
+        <!--  Action Buttons  -->
+        <StackPanel
+            Grid.Row="3"
+            Margin="20"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+
+            <Button
+                Command="{Binding AddWorkoutCommand}"
+                Content="Add Workout"
+                Style="{StaticResource WorkoutsPageButtonStyle}" />
+
+            <Button
+                Command="{Binding RemoveWorkoutCommand}"
+                Content="Remove Workout"
+                Style="{StaticResource WorkoutsPageButtonStyle}" />
+        </StackPanel>
+    </Grid>
+</Page>

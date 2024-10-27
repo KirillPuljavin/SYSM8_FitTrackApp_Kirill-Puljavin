@@ -10,6 +10,7 @@
 
             public abstract void Signin();
         }
+
         public class User : Person
         {
             public string Country { get; set; }
@@ -17,74 +18,60 @@
 
             public User(string userName, string email, string password, string country, bool isAdmin) : base(userName, email, password)
             {
-                userName = UserName;
-                email = Email;
-                password = Password;
-                country = Country;
-                isAdmin = IsAdmin;
+                UserName = userName;
+                Email = email;
+                Password = password;
+                Country = country;
+                IsAdmin = isAdmin;
             }
 
-            public override void Signin()
-            {
-                throw new System.NotImplementedException();
-            }
+            public override void Signin() => throw new System.NotImplementedException();
         }
+
         public class Admin : User
         {
-            public Admin(string userName, string email, string password, string country, bool isAdmin) : base(userName, email, password, country, isAdmin)
-            {
-                userName = UserName;
-                email = Email;
-                password = Password;
-                country = Country;
-                isAdmin = IsAdmin;
-            }
+            public Admin(string userName, string email, string password, string country, bool isAdmin)
+                : base(userName, email, password, country, isAdmin) { }
 
-            public void ManageWorkouts()
-            {
-                throw new System.NotImplementedException();
-            }
-            public void ManageUsers()
-            {
-                throw new System.NotImplementedException();
-            }
+            public void ManageWorkouts() => throw new System.NotImplementedException();
+            public void ManageUsers() => throw new System.NotImplementedException();
         }
 
-        public abstract class Workout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes)
+        public abstract class Workout
         {
-            public DateTime Date { get; set; } = date;
-            public string Type { get; set; } = type;
-            public TimeSpan Duration { get; set; } = duration;
-            public int CaloriesBurned { get; set; } = caloriesBurned;
-            public string Notes { get; set; } = notes;
+            public DateTime Date { get; set; }
+            public string Type { get; set; }
+            public TimeSpan Duration { get; set; }
+            public int CaloriesBurned { get; set; }
+            public string Notes { get; set; }
+            public string Summary => $"{Date.ToShortDateString()} - {Type}: {Duration.TotalMinutes} mins, {CaloriesBurned} cal";
+
+            protected Workout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes)
+            {
+                Date = date;
+                Type = type;
+                Duration = duration;
+                CaloriesBurned = caloriesBurned;
+                Notes = notes;
+            }
 
             public abstract int CalculateCaloriesBurned();
         }
 
         public class CardioWorkout : Workout
         {
-            public CardioWorkout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes) : base(date, type, duration, caloriesBurned, notes)
-            {
+            public CardioWorkout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes)
+                : base(date, type, duration, caloriesBurned, notes) { }
 
-            }
-
-            public override int CalculateCaloriesBurned()
-            {
-                throw new NotImplementedException();
-            }
+            public override int CalculateCaloriesBurned() => (int)(Duration.TotalMinutes * 10);
         }
 
-        public class StrenghtWorkout : Workout
+        public class StrengthWorkout : Workout
         {
-            public StrenghtWorkout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes) : base(date, type, duration, caloriesBurned, notes)
-            {
+            public StrengthWorkout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes)
+                : base(date, type, duration, caloriesBurned, notes) { }
 
-            }
-
-            public override int CalculateCaloriesBurned()
-            {
-                throw new NotImplementedException();
-            }
+            public override int CalculateCaloriesBurned() => (int)(Duration.TotalMinutes * 8);
         }
     }
 }

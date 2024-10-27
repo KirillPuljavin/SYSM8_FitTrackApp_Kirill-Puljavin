@@ -5,7 +5,7 @@ using Fit_Track_App.ViewModels;
 using System.Windows;
 using System.Windows.Input;
 
-public class LoginPageViewModel : ViewModelBase
+internal class LoginPageViewModel : ViewModelBase
 {
     public ICommand LoginCommand { get; }
     public ICommand BackCommand { get; }
@@ -55,8 +55,13 @@ public class LoginPageViewModel : ViewModelBase
         else
         {
             UserViewModel.Instance.LoggedInUser = user;
-            MessageBox.Show($"Welcome, {user.UserName}!");
             LoginFeedback = string.Empty;
+
+            // Navigate to Workouts Page after successful login
+            if (Application.Current.MainWindow is MainWindow window)
+            {
+                window.MainFrame.Navigate(new WorkoutsPage());
+            }
         }
     }
 

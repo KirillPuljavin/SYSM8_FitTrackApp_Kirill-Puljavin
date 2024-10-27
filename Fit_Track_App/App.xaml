@@ -146,5 +146,71 @@
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Margin" Value="0,10,0,0" />
         </Style>
+
+        <!--  WorkoutsPage Specific Styles  -->
+
+        <!--  Style for the Main Title  -->
+        <Style x:Key="WorkoutsPageTitleStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,20,0,10" />
+        </Style>
+
+        <!--  Style for the Subtitle  -->
+        <Style x:Key="WorkoutsPageSubtitleStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,10,0,5" />
+        </Style>
+
+        <!--  Style for ListBox Items  -->
+        <Style x:Key="WorkoutListBoxItemStyle" TargetType="ListBoxItem">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Margin" Value="5,2" />
+        </Style>
+
+        <!--  Style for Input TextBoxes  -->
+        <Style x:Key="WorkoutsPageTextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="8" />
+            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+
+        <!--  Style for DatePicker Controls  -->
+        <Style x:Key="WorkoutsPageDatePickerStyle" TargetType="DatePicker">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="8" />
+            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+
+        <!--  Style for Buttons in Workouts Page  -->
+        <Style
+            x:Key="WorkoutsPageButtonStyle"
+            BasedOn="{StaticResource ButtonStyle}"
+            TargetType="Button">
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Margin" Value="10,0" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
     </Application.Resources>
 </Application>

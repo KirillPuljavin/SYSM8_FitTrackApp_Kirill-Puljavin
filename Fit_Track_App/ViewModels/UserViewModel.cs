@@ -1,110 +1,84 @@
 ﻿using Fit_Track_App.Classes;
+using Fit_Track_App.Services;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Fit_Track_App.ViewModels
 {
-    public class UserViewModel : INotifyPropertyChanged
+    internal class UserViewModel : ViewModelBase
     {
         private static UserViewModel? _instance;
-        public static UserViewModel Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new UserViewModel();
-                }
-                return _instance;
-            }
-        }
+        public static UserViewModel Instance => _instance ??= new UserViewModel();
+
+        private readonly WorkoutService _workoutService;
+
+        // Delegate for handling navigation to Workouts Page
+        public Action NavigateToWorkoutsPage { get; set; }
 
         internal ObservableCollection<DataManagement.User> Users { get; set; }
-        internal ObservableCollection<DataManagement.Workout> Workouts { get; set; }
-
-        private string _userName;
-        public string UserName
-        {
-            get { return _userName; }
-            set
-            {
-                _userName = value;
-                OnPropertyChanged(nameof(UserName));
-            }
-        }
-
-        private string _email;
-        public string Email
-        {
-            get { return _email; }
-            set
-            {
-                _email = value;
-                OnPropertyChanged(nameof(Email));
-            }
-        }
-
-        private string _password;
-        public string Password
-        {
-            get { return _password; }
-            set
-            {
-                _password = value;
-                OnPropertyChanged(nameof(Password));
-            }
-        }
-
-        private string _country;
-        public string Country
-        {
-            get { return _country; }
-            set
-            {
-                _country = value;
-                OnPropertyChanged(nameof(Country));
-            }
-        }
+        public string Country { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string UserName { get; set; }
 
         private DataManagement.User _loggedInUser;
         internal DataManagement.User LoggedInUser
         {
-            get { return _loggedInUser; }
-            set
-            {
-                _loggedInUser = value;
-                OnPropertyChanged(nameof(LoggedInUser));
-            }
+            get => _loggedInUser;
+            set { _loggedInUser = value; OnPropertyChanged(nameof(LoggedInUser)); }
         }
 
-        private RelayCommand _loginCommand;
+        // Workout-related properties
+        public ObservableCollection<DataManagement.Workout> Workouts { get; }
+        private DataManagement.Workout _selectedWorkout;
+        public DataManagement.Workout SelectedWorkout
+        {
+            get => _selectedWorkout;
+            set { _selectedWorkout = value; OnPropertyChanged(nameof(SelectedWorkout)); }
+        }
+
+        public DateTime NewWorkoutDate { get; set; }
+        public string NewWorkoutType { get; set; }
+        public TimeSpan NewWorkoutDuration { get; set; }
+        public int NewWorkoutCalories { get; set; }
+        public string NewWorkoutNotes { get; set; }
+
+        // Commands
+        public ICommand AddWorkoutCommand { get; }
+        public ICommand RemoveWorkoutCommand { get; }
+        public ICommand RegisterCommand { get; }
+        public ICommand LoginCommand { get; }
 
         private UserViewModel()
         {
+            _workoutService = new WorkoutService();
             Users = new ObservableCollection<DataManagement.User>
             {
                 new DataManagement.User("admin", "admin@fittrack.com", "password", "Sweden", true),
                 new DataManagement.User("user", "user@fittrack.com", "password", "Sweden", false)
             };
 
-            Workouts = new ObservableCollection<DataManagement.Workout>();
-            _loginCommand = new RelayCommand(Register);
+            Workouts = new ObservableCollection<DataManagement.Workout>(_workoutService.GetAllWorkouts());
+            AddWorkoutCommand = new RelayCommand(_ => AddWorkout());
+            RemoveWorkoutCommand = new RelayCommand(_ => RemoveWorkout());
+            RegisterCommand = new RelayCommand(_ => Register());
+            LoginCommand = new RelayCommand(_ => Login());
         }
 
-        public bool Login()
+        public void Login()
         {
             var user = Users.FirstOrDefault(u => u.UserName == UserName && u.Password == Password);
             if (user != null)
             {
                 LoggedInUser = user;
-                MessageBox.Show($"Welcome, {LoggedInUser.UserName}!");
-                return true;
+
+                // Navigate to Workouts Page after successful login
+                NavigateToWorkoutsPage?.Invoke();
             }
             else
             {
                 MessageBox.Show("Invalid username or password.");
-                return false;
             }
         }
 
@@ -122,10 +96,33 @@ namespace Fit_Track_App.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
+        // Workout management methods
+        public void AddWorkout()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var newWorkout = _workoutService.CreateWorkout(NewWorkoutDate, NewWorkoutType, NewWorkoutDuration, NewWorkoutCalories, NewWorkoutNotes);
+            if (newWorkout != null)
+            {
+                Workouts.Add(newWorkout);
+                MessageBox.Show("Workout added successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Invalid workout type.");
+            }
+        }
+
+        public void RemoveWorkout()
+        {
+            if (SelectedWorkout != null)
+            {
+                _workoutService.DeleteWorkout(SelectedWorkout);
+                Workouts.Remove(SelectedWorkout);
+                MessageBox.Show("Workout removed successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Please select a workout to remove.");
+            }
         }
     }
 }

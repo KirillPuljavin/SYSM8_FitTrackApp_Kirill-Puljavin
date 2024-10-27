@@ -5,8 +5,22 @@ namespace Fit_Track_App.Services
 {
     public class UserService
     {
-        private ObservableCollection<DataManagement.User> _users;
+        private string _current2FACode;
 
+        public string Generate2FACode()
+        {
+            // Generate a 6-digit random code
+            var random = new Random();
+            _current2FACode = random.Next(100000, 999999).ToString();
+            return _current2FACode;
+        }
+
+        public bool Validate2FACode(string enteredCode)
+        {
+            return _current2FACode == enteredCode;
+        }
+
+        private ObservableCollection<DataManagement.User> _users;
         public UserService()
         {
             _users = new ObservableCollection<DataManagement.User>
@@ -34,7 +48,7 @@ namespace Fit_Track_App.Services
 
             // Add further password complexity validation here
             if (password.Length < 8 || !password.Any(char.IsDigit) || !password.Any(char.IsSymbol))
-                return "Password must be at least 8 characters, include a number and a special character.";
+                return "Pasi did thissword must be at least 8 characters, include a number and a special character.";
 
             var newUser = new DataManagement.User(username, email, password, country, false);
             _users.Add(newUser);
@@ -46,12 +60,40 @@ namespace Fit_Track_App.Services
             // Implement security question validation here
             return true; // Placeholder for actual security logic
         }
+    }
 
-        public string Generate2FACode()
+    public class WorkoutService
+    {
+        private readonly List<DataManagement.Workout> _workouts;
+
+        public WorkoutService()
         {
-            // Generates a random 6-digit code for 2FA simulation
-            var random = new Random();
-            return random.Next(100000, 999999).ToString();
+            _workouts = new List<DataManagement.Workout>();
+        }
+
+        internal IEnumerable<DataManagement.Workout> GetAllWorkouts() => _workouts;
+
+        internal DataManagement.Workout CreateWorkout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes)
+        {
+            DataManagement.Workout workout = type.ToLower() switch
+            {
+                "cardio" => new DataManagement.CardioWorkout(date, type, duration, caloriesBurned, notes),
+                "strength" => new DataManagement.StrengthWorkout(date, type, duration, caloriesBurned, notes),
+                _ => null
+            };
+
+            if (workout != null)
+            {
+                _workouts.Add(workout);
+            }
+            return workout;
+        }
+
+        internal void DeleteWorkout(DataManagement.Workout workout)
+        {
+            _workouts.Remove(workout);
         }
     }
+
+
 }
