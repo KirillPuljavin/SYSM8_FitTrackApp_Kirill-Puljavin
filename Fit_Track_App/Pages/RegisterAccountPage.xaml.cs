@@ -13,6 +13,15 @@ namespace Fit_Track_App.Pages
             DataContext = new RegisterAccountPageViewModel();
         }
 
+        // Update Password in ViewModel when PasswordBox content changes
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is RegisterAccountPageViewModel viewModel)
+            {
+                viewModel.Password = PasswordBox.Password;
+            }
+        }
+
         // Placeholder logic for Username TextBox
         private void UsernameTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -51,10 +60,10 @@ namespace Fit_Track_App.Pages
             }
         }
 
-        // Placeholder logic for Password Box
+        // Placeholder logic for PasswordBox
         private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (PasswordBox.Tag.ToString() == "Password" && PasswordBox.Password == "")
+            if (PasswordBox.Tag != null && PasswordBox.Tag.ToString() == "Password" && PasswordBox.Password == "")
             {
                 PasswordBox.Foreground = new SolidColorBrush(Colors.Black);
                 PasswordBox.Tag = "";

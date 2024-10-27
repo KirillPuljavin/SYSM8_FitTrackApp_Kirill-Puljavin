@@ -68,4 +68,22 @@ namespace Fit_Track_App.Classes
             throw new NotImplementedException();
         }
     }
+
+    public class ScaleConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is double windowSize)
+            {
+                // Example scaling formula to ensure responsiveness
+                return windowSize > 800 ? 1.0 : windowSize / 800.0;
+            }
+            return 1.0;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
