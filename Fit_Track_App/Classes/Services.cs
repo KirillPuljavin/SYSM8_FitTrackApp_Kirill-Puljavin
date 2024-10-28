@@ -62,38 +62,55 @@ namespace Fit_Track_App.Services
         }
     }
 
-    public class WorkoutService
+    internal class WorkoutService
     {
-        private readonly List<DataManagement.Workout> _workouts;
-
+        public ObservableCollection<DataManagement.Workout> Workouts { get; private set; }
         public WorkoutService()
         {
-            _workouts = new List<DataManagement.Workout>();
+            Workouts = new ObservableCollection<DataManagement.Workout>();
+        }
+        public ObservableCollection<DataManagement.Workout> GetAllWorkouts()
+        {
+            return Workouts;
         }
 
-        internal IEnumerable<DataManagement.Workout> GetAllWorkouts() => _workouts;
-
-        internal DataManagement.Workout CreateWorkout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes)
+        public DataManagement.Workout CreateWorkout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes)
         {
-            DataManagement.Workout workout = type.ToLower() switch
-            {
-                "cardio" => new DataManagement.CardioWorkout(date, type, duration, caloriesBurned, notes),
-                "strength" => new DataManagement.StrengthWorkout(date, type, duration, caloriesBurned, notes),
-                _ => null
-            };
+            DataManagement.Workout newWorkout;
 
-            if (workout != null)
+            if (type.Equals("Cardio", StringComparison.OrdinalIgnoreCase))
             {
-                _workouts.Add(workout);
+                newWorkout = new DataManagement.CardioWorkout(date, type, duration, caloriesBurned, notes);
             }
-            return workout;
+            else if (type.Equals("Strength", StringComparison.OrdinalIgnoreCase))
+            {
+                newWorkout = new DataManagement.StrengthWorkout(date, type, duration, caloriesBurned, notes);
+            }
+            else
+            {
+                return null;
+            }
+
+            Workouts.Add(newWorkout);
+            return newWorkout;
         }
 
-        internal void DeleteWorkout(DataManagement.Workout workout)
+        public void DeleteWorkout(DataManagement.Workout workout)
         {
-            _workouts.Remove(workout);
+            Workouts.Remove(workout);
+        }
+
+        public void UpdateWorkout(DataManagement.Workout updatedWorkout)
+        {
+            var existingWorkout = Workouts.FirstOrDefault(w => w == updatedWorkout);
+            if (existingWorkout != null)
+            {
+                existingWorkout.Date = updatedWorkout.Date;
+                existingWorkout.Type = updatedWorkout.Type;
+                existingWorkout.Duration = updatedWorkout.Duration;
+                existingWorkout.CaloriesBurned = updatedWorkout.CaloriesBurned;
+                existingWorkout.Notes = updatedWorkout.Notes;
+            }
         }
     }
-
-
 }

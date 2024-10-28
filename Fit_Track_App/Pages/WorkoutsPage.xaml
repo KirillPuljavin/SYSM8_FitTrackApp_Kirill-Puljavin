@@ -62,12 +62,12 @@
             <Button
                 Command="{Binding AddWorkoutCommand}"
                 Content="Add Workout"
-                Style="{StaticResource WorkoutsPageButtonStyle}" />
+                Style="{StaticResource ButtonStyle}" />
 
             <Button
                 Command="{Binding RemoveWorkoutCommand}"
                 Content="Remove Workout"
-                Style="{StaticResource WorkoutsPageButtonStyle}" />
+                Style="{StaticResource ButtonStyle}" />
         </StackPanel>
     </Grid>
 </Page>

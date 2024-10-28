@@ -1,5 +1,4 @@
-﻿using Fit_Track_App.ViewModels;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace Fit_Track_App.Pages
 {
@@ -8,7 +7,7 @@ namespace Fit_Track_App.Pages
         public WorkoutsPage()
         {
             InitializeComponent();
-            DataContext = UserViewModel.Instance;
+            DataContext = new WorkoutsPageViewModel();
         }
     }
 }

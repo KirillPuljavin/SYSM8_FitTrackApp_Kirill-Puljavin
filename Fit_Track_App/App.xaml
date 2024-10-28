@@ -10,48 +10,65 @@
 
         <!--  Define Colors as Resources  -->
         <Color x:Key="CrimsonColor">#DC143C</Color>
+        <Color x:Key="DarkerRedColor">#B22222</Color>
         <Color x:Key="LightGrayColor">#D3D3D3</Color>
         <Color x:Key="GrayColor">#808080</Color>
         <Color x:Key="BlackColor">#000000</Color>
 
         <!--  Define SolidColorBrushes to Use Colors in Elements  -->
         <SolidColorBrush x:Key="CrimsonBrush" Color="{StaticResource CrimsonColor}" />
+        <SolidColorBrush x:Key="DarkerRedBrush" Color="{StaticResource DarkerRedColor}" />
         <SolidColorBrush x:Key="LightGrayBrush" Color="{StaticResource LightGrayColor}" />
         <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource GrayColor}" />
         <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource BlackColor}" />
 
-        <!--  Unified style for Buttons  -->
+        <!--  Button Style  -->
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontSize" Value="20" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Height" Value="60" />
-            <Setter Property="Width" Value="260" />
+            <Setter Property="Width" Value="250" />
             <Setter Property="Margin" Value="0,10" />
-            <Setter Property="Padding" Value="0,5" />
             <Setter Property="BorderBrush" Value="#8B0000" />
             <Setter Property="BorderThickness" Value="2" />
-            <Setter Property="Cursor" Value="Hand" />
             <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
             <Setter Property="RenderTransform">
                 <Setter.Value>
                     <ScaleTransform ScaleX="1" ScaleY="1" />
                 </Setter.Value>
             </Setter>
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="0">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
             <Style.Triggers>
+                <!--  Hover Effect  -->
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#B22222" />
-                    <!--  Darker Red for Hover  -->
+                    <Setter Property="Background" Value="{StaticResource DarkerRedBrush}" />
                     <Setter Property="BorderBrush" Value="#8B0000" />
-                    <Setter Property="Foreground" Value="White" />
-                    <!--  Maintain text visibility  -->
                 </Trigger>
+                <!--  Pressed State Effect  -->
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="#A52A2A" />
-                    <!--  Even Darker Red when Pressed  -->
+                    <Setter Property="Background" Value="{StaticResource DarkerRedBrush}" />
                     <Setter Property="BorderBrush" Value="#8B0000" />
                 </Trigger>
+                <!--  Mouse Enter and Leave Animations for Scaling  -->
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
                         <Storyboard>
@@ -91,7 +108,7 @@
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
             <Setter Property="BorderThickness" Value="2" />
             <Setter Property="Height" Value="50" />
-            <Setter Property="Width" Value="300" />
+            <Setter Property="Width" Value="400" />
             <Setter Property="Margin" Value="0,10" />
             <Setter Property="Padding" Value="10" />
             <Style.Triggers>
@@ -113,7 +130,7 @@
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
             <Setter Property="BorderThickness" Value="2" />
             <Setter Property="Height" Value="50" />
-            <Setter Property="Width" Value="300" />
+            <Setter Property="Width" Value="400" />
             <Setter Property="Margin" Value="0,10" />
             <Setter Property="Padding" Value="10" />
             <Style.Triggers>
