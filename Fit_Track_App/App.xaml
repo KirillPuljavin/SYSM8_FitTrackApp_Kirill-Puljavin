@@ -8,14 +8,14 @@
     <Application.Resources>
         <local:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
 
-        <!--  Define Colors as Resources  -->
+        <!--  Colors  -->
         <Color x:Key="CrimsonColor">#DC143C</Color>
         <Color x:Key="DarkerRedColor">#B22222</Color>
         <Color x:Key="LightGrayColor">#D3D3D3</Color>
         <Color x:Key="GrayColor">#808080</Color>
         <Color x:Key="BlackColor">#000000</Color>
 
-        <!--  Define SolidColorBrushes to Use Colors in Elements  -->
+        <!--  Brushes  -->
         <SolidColorBrush x:Key="CrimsonBrush" Color="{StaticResource CrimsonColor}" />
         <SolidColorBrush x:Key="DarkerRedBrush" Color="{StaticResource DarkerRedColor}" />
         <SolidColorBrush x:Key="LightGrayBrush" Color="{StaticResource LightGrayColor}" />
@@ -26,13 +26,14 @@
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontSize" Value="18" />
             <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Height" Value="60" />
-            <Setter Property="Width" Value="250" />
-            <Setter Property="Margin" Value="0,10" />
+            <Setter Property="Height" Value="54" />
+            <Setter Property="Width" Value="225" />
+            <Setter Property="Margin" Value="0,9" />
+            <Setter Property="Padding" Value="9" />
             <Setter Property="BorderBrush" Value="#8B0000" />
-            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderThickness" Value="1.8" />
             <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
             <Setter Property="RenderTransform">
                 <Setter.Value>
@@ -56,19 +57,15 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
             <Style.Triggers>
-                <!--  Hover Effect  -->
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="{StaticResource DarkerRedBrush}" />
                     <Setter Property="BorderBrush" Value="#8B0000" />
                 </Trigger>
-                <!--  Pressed State Effect  -->
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Background" Value="{StaticResource DarkerRedBrush}" />
                     <Setter Property="BorderBrush" Value="#8B0000" />
                 </Trigger>
-                <!--  Mouse Enter and Leave Animations for Scaling  -->
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
                         <Storyboard>
@@ -100,39 +97,34 @@
             </Style.Triggers>
         </Style>
 
-        <!--  Unified style for TextBoxes  -->
+        <!--  Input Label Style  -->
+        <Style x:Key="InputLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="10.8" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+
+        <!--  Unified TextBox Style  -->
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontSize" Value="16.2" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
-            <Setter Property="BorderThickness" Value="2" />
-            <Setter Property="Height" Value="50" />
-            <Setter Property="Width" Value="400" />
-            <Setter Property="Margin" Value="0,10" />
-            <Setter Property="Padding" Value="10" />
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
-                </Trigger>
-                <Trigger Property="IsFocused" Value="True">
-                    <Setter Property="Foreground" Value="{StaticResource BlackBrush}" />
-                    <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
-                </Trigger>
-            </Style.Triggers>
+            <Setter Property="BorderThickness" Value="1.8" />
+            <Setter Property="Width" Value="360" />
+            <Setter Property="Padding" Value="9" />
         </Style>
 
-        <!--  Unified style for PasswordBoxes  -->
+        <!--  PasswordBox Style  -->
         <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontSize" Value="16.2" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
-            <Setter Property="BorderThickness" Value="2" />
-            <Setter Property="Height" Value="50" />
-            <Setter Property="Width" Value="400" />
-            <Setter Property="Margin" Value="0,10" />
-            <Setter Property="Padding" Value="10" />
+            <Setter Property="BorderThickness" Value="1.8" />
+            <Setter Property="Width" Value="360" />
+            <Setter Property="Padding" Value="9" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
@@ -144,90 +136,89 @@
             </Style.Triggers>
         </Style>
 
-        <!--  Style for Title Labels  -->
+        <!--  ComboBox Style  -->
+        <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="FontSize" Value="16.2" />
+            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
+            <Setter Property="BorderThickness" Value="1.8" />
+            <Setter Property="Padding" Value="11" />
+            <Setter Property="Width" Value="360" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <!--  DatePicker Style  -->
+        <Style x:Key="WorkoutsPageDatePickerStyle" TargetType="DatePicker">
+            <Setter Property="FontSize" Value="16.2" />
+            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
+            <Setter Property="BorderThickness" Value="1.8" />
+            <Setter Property="Width" Value="360" />
+            <Setter Property="Padding" Value="9" />
+        </Style>
+
+        <!--  Title Label Style  -->
         <Style x:Key="TitleLabelStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="64" />
+            <Setter Property="FontSize" Value="57.6" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="0,20,0,10" />
+            <Setter Property="Margin" Value="0,18,0,9" />
         </Style>
 
-        <!--  Style for Subtitle Labels  -->
+        <!--  Subtitle Label Style  -->
         <Style x:Key="SubtitleLabelStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontSize" Value="21.6" />
             <Setter Property="FontWeight" Value="Regular" />
             <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="0,10,0,0" />
+            <Setter Property="Margin" Value="0,9,0,0" />
         </Style>
 
-        <!--  WorkoutsPage Specific Styles  -->
-
-        <!--  Style for the Main Title  -->
+        <!--  WorkoutsPage Title Style  -->
         <Style x:Key="WorkoutsPageTitleStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="48" />
+            <Setter Property="FontSize" Value="43.2" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="0,20,0,10" />
+            <Setter Property="Margin" Value="0,18,0,9" />
         </Style>
 
-        <!--  Style for the Subtitle  -->
+        <!--  WorkoutsPage Subtitle Style  -->
         <Style x:Key="WorkoutsPageSubtitleStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontSize" Value="21.6" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="0,10,0,5" />
+            <Setter Property="Margin" Value="0,9,0,4.5" />
         </Style>
 
-        <!--  Style for ListBox Items  -->
+        <!--  Workout ListBox Item Style  -->
         <Style x:Key="WorkoutListBoxItemStyle" TargetType="ListBoxItem">
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="Padding" Value="10" />
+            <Setter Property="FontSize" Value="16.2" />
+            <Setter Property="Padding" Value="9" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Margin" Value="5,2" />
+            <Setter Property="BorderThickness" Value="0.9" />
+            <Setter Property="Margin" Value="4.5,1.8" />
         </Style>
 
-        <!--  Style for Input TextBoxes  -->
-        <Style x:Key="WorkoutsPageTextBoxStyle" TargetType="TextBox">
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="Padding" Value="8" />
-            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
-            <Setter Property="Background" Value="White" />
-            <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
-            <Setter Property="BorderThickness" Value="2" />
-            <Setter Property="Width" Value="300" />
-            <Setter Property="Margin" Value="0,5" />
-        </Style>
-
-        <!--  Style for DatePicker Controls  -->
-        <Style x:Key="WorkoutsPageDatePickerStyle" TargetType="DatePicker">
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="Padding" Value="8" />
-            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
-            <Setter Property="Background" Value="White" />
-            <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
-            <Setter Property="BorderThickness" Value="2" />
-            <Setter Property="Width" Value="300" />
-            <Setter Property="Margin" Value="0,5" />
-        </Style>
-
-        <!--  Style for Buttons in Workouts Page  -->
+        <!--  WorkoutsPage Button Style  -->
         <Style
             x:Key="WorkoutsPageButtonStyle"
             BasedOn="{StaticResource ButtonStyle}"
             TargetType="Button">
-            <Setter Property="Width" Value="150" />
-            <Setter Property="Margin" Value="10,0" />
-            <Setter Property="Padding" Value="5" />
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Width" Value="135" />
         </Style>
     </Application.Resources>
 </Application>

@@ -32,40 +32,38 @@
             VerticalAlignment="Center"
             Orientation="Vertical">
 
-            <TextBox
-                x:Name="UsernameTextBox"
-                GotFocus="UsernameTextBox_GotFocus"
-                Loaded="UsernameTextBox_Loaded"
-                LostFocus="UsernameTextBox_LostFocus"
-                Style="{StaticResource TextBoxStyle}"
-                Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+            <StackPanel Margin="0,10">
+                <Label Content="Username" Style="{StaticResource InputLabel}" />
+                <TextBox
+                    x:Name="UsernameTextBox"
+                    Style="{StaticResource TextBoxStyle}"
+                    Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
 
-            <PasswordBox
-                x:Name="PasswordBox"
-                GotFocus="PasswordBox_GotFocus"
-                LostFocus="PasswordBox_LostFocus"
-                PasswordChanged="PasswordBox_PasswordChanged"
-                Style="{StaticResource PasswordBoxStyle}"
-                Tag="Password" />
+            <StackPanel Margin="0,10">
+                <Label Content="Password" Style="{StaticResource InputLabel}" />
+                <PasswordBox
+                    x:Name="PasswordBox"
+                    PasswordChanged="PasswordBox_PasswordChanged"
+                    Style="{StaticResource PasswordBoxStyle}"
+                    Tag="Password" />
+            </StackPanel>
 
             <TextBlock
                 Foreground="Red"
                 Text="{Binding LoginFeedback}"
                 Visibility="{Binding LoginFeedback, Converter={StaticResource StringToVisibilityConverter}}" />
-
         </StackPanel>
 
-        <!--  Back Button  -->
+        <!--  Back and Login Buttons  -->
         <StackPanel
             Grid.Row="2"
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
-
             <Button
                 Command="{Binding LoginCommand}"
                 Content="Login"
                 Style="{StaticResource ButtonStyle}" />
-
             <Button
                 Command="{Binding BackCommand}"
                 Content="Back"

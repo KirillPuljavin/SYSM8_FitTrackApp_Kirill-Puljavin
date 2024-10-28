@@ -74,4 +74,10 @@
             public override int CalculateCaloriesBurned() => (int)(Duration.TotalMinutes * 8);
         }
     }
+
+    public enum WorkoutType
+    {
+        Cardio,
+        Strength
+    }
 }

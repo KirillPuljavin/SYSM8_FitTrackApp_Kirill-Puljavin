@@ -1,5 +1,4 @@
 ﻿using Fit_Track_App.Classes;
-using Fit_Track_App.Services;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -10,8 +9,6 @@ namespace Fit_Track_App.ViewModels
     {
         private static UserViewModel? _instance;
         public static UserViewModel Instance => _instance ??= new UserViewModel();
-
-        private readonly WorkoutService _workoutService;
 
         // Delegate for handling navigation to Workouts Page
         public Action NavigateToWorkoutsPage { get; set; }
@@ -52,16 +49,14 @@ namespace Fit_Track_App.ViewModels
 
         private UserViewModel()
         {
-            _workoutService = new WorkoutService();
+            // DEFAULT USERS
             Users = new ObservableCollection<DataManagement.User>
             {
                 new DataManagement.User("admin", "admin@fittrack.com", "password", "Sweden", true),
-                new DataManagement.User("user", "user@fittrack.com", "password", "Sweden", false)
+                new DataManagement.User("user", "user@fittrack.com", "password", "Sweden", false),
+                new DataManagement.User("2", "2", "2", "Sweden", false)
             };
 
-            Workouts = new ObservableCollection<DataManagement.Workout>(_workoutService.GetAllWorkouts());
-            AddWorkoutCommand = new RelayCommand(_ => AddWorkout());
-            RemoveWorkoutCommand = new RelayCommand(_ => RemoveWorkout());
             RegisterCommand = new RelayCommand(_ => Register());
             LoginCommand = new RelayCommand(_ => Login());
         }
@@ -72,8 +67,6 @@ namespace Fit_Track_App.ViewModels
             if (user != null)
             {
                 LoggedInUser = user;
-
-                // Navigate to Workouts Page after successful login
                 NavigateToWorkoutsPage?.Invoke();
             }
             else
@@ -93,35 +86,6 @@ namespace Fit_Track_App.ViewModels
                 var newUser = new DataManagement.User(UserName, Email, Password, Country, false);
                 Users.Add(newUser);
                 MessageBox.Show("User registered successfully.");
-            }
-        }
-
-        // Workout management methods
-        public void AddWorkout()
-        {
-            var newWorkout = _workoutService.CreateWorkout(NewWorkoutDate, NewWorkoutType, NewWorkoutDuration, NewWorkoutCalories, NewWorkoutNotes);
-            if (newWorkout != null)
-            {
-                Workouts.Add(newWorkout);
-                MessageBox.Show("Workout added successfully.");
-            }
-            else
-            {
-                MessageBox.Show("Invalid workout type.");
-            }
-        }
-
-        public void RemoveWorkout()
-        {
-            if (SelectedWorkout != null)
-            {
-                _workoutService.DeleteWorkout(SelectedWorkout);
-                Workouts.Remove(SelectedWorkout);
-                MessageBox.Show("Workout removed successfully.");
-            }
-            else
-            {
-                MessageBox.Show("Please select a workout to remove.");
             }
         }
     }

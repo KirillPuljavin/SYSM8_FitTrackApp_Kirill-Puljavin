@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using Fit_Track_App.ViewModels;
+using System.Windows.Controls;
 
 namespace Fit_Track_App.Pages
 {

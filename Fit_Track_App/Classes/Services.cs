@@ -36,7 +36,7 @@ namespace Fit_Track_App.Services
             if (user != null)
             {
                 // Proceed with 2FA if enabled or return login success
-                return true; // Temporary for further integration
+                return true;
             }
             return false;
         }
@@ -58,59 +58,7 @@ namespace Fit_Track_App.Services
         public bool ForgotPassword(string username, string securityAnswer)
         {
             // Implement security question validation here
-            return true; // Placeholder for actual security logic
-        }
-    }
-
-    internal class WorkoutService
-    {
-        public ObservableCollection<DataManagement.Workout> Workouts { get; private set; }
-        public WorkoutService()
-        {
-            Workouts = new ObservableCollection<DataManagement.Workout>();
-        }
-        public ObservableCollection<DataManagement.Workout> GetAllWorkouts()
-        {
-            return Workouts;
-        }
-
-        public DataManagement.Workout CreateWorkout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes)
-        {
-            DataManagement.Workout newWorkout;
-
-            if (type.Equals("Cardio", StringComparison.OrdinalIgnoreCase))
-            {
-                newWorkout = new DataManagement.CardioWorkout(date, type, duration, caloriesBurned, notes);
-            }
-            else if (type.Equals("Strength", StringComparison.OrdinalIgnoreCase))
-            {
-                newWorkout = new DataManagement.StrengthWorkout(date, type, duration, caloriesBurned, notes);
-            }
-            else
-            {
-                return null;
-            }
-
-            Workouts.Add(newWorkout);
-            return newWorkout;
-        }
-
-        public void DeleteWorkout(DataManagement.Workout workout)
-        {
-            Workouts.Remove(workout);
-        }
-
-        public void UpdateWorkout(DataManagement.Workout updatedWorkout)
-        {
-            var existingWorkout = Workouts.FirstOrDefault(w => w == updatedWorkout);
-            if (existingWorkout != null)
-            {
-                existingWorkout.Date = updatedWorkout.Date;
-                existingWorkout.Type = updatedWorkout.Type;
-                existingWorkout.Duration = updatedWorkout.Duration;
-                existingWorkout.CaloriesBurned = updatedWorkout.CaloriesBurned;
-                existingWorkout.Notes = updatedWorkout.Notes;
-            }
+            return true;
         }
     }
 }

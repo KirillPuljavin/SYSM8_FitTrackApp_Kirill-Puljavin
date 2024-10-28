@@ -57,7 +57,6 @@ internal class LoginPageViewModel : ViewModelBase
             UserViewModel.Instance.LoggedInUser = user;
             LoginFeedback = string.Empty;
 
-            // Navigate to Workouts Page after successful login
             if (Application.Current.MainWindow is MainWindow window)
             {
                 window.MainFrame.Navigate(new WorkoutsPage());
