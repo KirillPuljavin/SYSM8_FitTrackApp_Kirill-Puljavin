@@ -1,7 +1,6 @@
 ﻿using Fit_Track_App.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace Fit_Track_App.Pages
 {
@@ -13,69 +12,19 @@ namespace Fit_Track_App.Pages
             DataContext = new RegisterAccountPageViewModel();
         }
 
-        // Update Password in ViewModel when PasswordBox content changes
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (DataContext is RegisterAccountPageViewModel viewModel)
+            if (sender is PasswordBox passwordBox && DataContext is RegisterAccountPageViewModel viewModel)
             {
-                viewModel.Password = PasswordBox.Password;
+                viewModel.Password = passwordBox.Password;
             }
         }
 
-        // Placeholder logic for Username TextBox
-        private void UsernameTextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void ConfirmPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (UsernameTextBox.Text == "Username")
+            if (sender is PasswordBox confirmPasswordBox && DataContext is RegisterAccountPageViewModel viewModel)
             {
-                UsernameTextBox.Text = "";
-                UsernameTextBox.Foreground = new SolidColorBrush(Colors.Black);
-            }
-        }
-
-        private void UsernameTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(UsernameTextBox.Text))
-            {
-                UsernameTextBox.Text = "Username";
-                UsernameTextBox.Foreground = new SolidColorBrush(Colors.Gray);
-            }
-        }
-
-        // Placeholder logic for Email TextBox
-        private void EmailTextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (EmailTextBox.Text == "Email")
-            {
-                EmailTextBox.Text = "";
-                EmailTextBox.Foreground = new SolidColorBrush(Colors.Black);
-            }
-        }
-
-        private void EmailTextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(EmailTextBox.Text))
-            {
-                EmailTextBox.Text = "Email";
-                EmailTextBox.Foreground = new SolidColorBrush(Colors.Gray);
-            }
-        }
-
-        // Placeholder logic for PasswordBox
-        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (PasswordBox.Tag != null && PasswordBox.Tag.ToString() == "Password" && PasswordBox.Password == "")
-            {
-                PasswordBox.Foreground = new SolidColorBrush(Colors.Black);
-                PasswordBox.Tag = "";
-            }
-        }
-
-        private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(PasswordBox.Password))
-            {
-                PasswordBox.Foreground = new SolidColorBrush(Colors.Gray);
-                PasswordBox.Tag = "Password";
+                viewModel.ConfirmPassword = confirmPasswordBox.Password;
             }
         }
     }

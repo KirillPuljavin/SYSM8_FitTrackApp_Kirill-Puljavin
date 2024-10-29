@@ -41,10 +41,14 @@
                 <Label Content="Username" Style="{StaticResource InputLabel}" />
                 <TextBox
                     x:Name="UsernameTextBox"
-                    GotFocus="UsernameTextBox_GotFocus"
-                    LostFocus="UsernameTextBox_LostFocus"
                     Style="{StaticResource TextBoxStyle}"
                     Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock
+                    MaxWidth="360"
+                    Foreground="Red"
+                    Text="{Binding UserNameError}"
+                    TextWrapping="Wrap"
+                    Visibility="{Binding UserNameError, Converter={StaticResource StringToVisibilityConverter}}" />
             </StackPanel>
 
             <!--  Email Input  -->
@@ -52,21 +56,14 @@
                 <Label Content="Email" Style="{StaticResource InputLabel}" />
                 <TextBox
                     x:Name="EmailTextBox"
-                    GotFocus="EmailTextBox_GotFocus"
-                    LostFocus="EmailTextBox_LostFocus"
                     Style="{StaticResource TextBoxStyle}"
                     Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" />
-            </StackPanel>
-
-            <!--  Password Input  -->
-            <StackPanel Margin="0,5" Orientation="Vertical">
-                <Label Content="Password" Style="{StaticResource InputLabel}" />
-                <PasswordBox
-                    x:Name="PasswordBox"
-                    GotFocus="PasswordBox_GotFocus"
-                    LostFocus="PasswordBox_LostFocus"
-                    PasswordChanged="PasswordBox_PasswordChanged"
-                    Style="{StaticResource PasswordBoxStyle}" />
+                <TextBlock
+                    MaxWidth="360"
+                    Foreground="Red"
+                    Text="{Binding EmailError}"
+                    TextWrapping="Wrap"
+                    Visibility="{Binding EmailError, Converter={StaticResource StringToVisibilityConverter}}" />
             </StackPanel>
 
             <!--  Country Input  -->
@@ -76,6 +73,42 @@
                     x:Name="CountryTextBox"
                     Style="{StaticResource TextBoxStyle}"
                     Text="{Binding Country, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock
+                    MaxWidth="360"
+                    Foreground="Red"
+                    Text="{Binding CountryError}"
+                    TextWrapping="Wrap"
+                    Visibility="{Binding CountryError, Converter={StaticResource StringToVisibilityConverter}}" />
+            </StackPanel>
+
+            <!--  Password Input  -->
+            <StackPanel Margin="0,5" Orientation="Vertical">
+                <Label Content="Password" Style="{StaticResource InputLabel}" />
+                <PasswordBox
+                    x:Name="PasswordBox"
+                    PasswordChanged="PasswordBox_PasswordChanged"
+                    Style="{StaticResource PasswordBoxStyle}" />
+                <TextBlock
+                    MaxWidth="360"
+                    Foreground="Red"
+                    Text="{Binding PasswordError}"
+                    TextWrapping="Wrap"
+                    Visibility="{Binding PasswordError, Converter={StaticResource StringToVisibilityConverter}}" />
+            </StackPanel>
+
+            <!--  Confirm Password Input  -->
+            <StackPanel Margin="0,5" Orientation="Vertical">
+                <Label Content="Confirm Password" Style="{StaticResource InputLabel}" />
+                <PasswordBox
+                    x:Name="ConfirmPasswordBox"
+                    PasswordChanged="ConfirmPasswordBox_PasswordChanged"
+                    Style="{StaticResource PasswordBoxStyle}" />
+                <TextBlock
+                    MaxWidth="360"
+                    Foreground="Red"
+                    Text="{Binding ConfirmPasswordError}"
+                    TextWrapping="Wrap"
+                    Visibility="{Binding ConfirmPasswordError, Converter={StaticResource StringToVisibilityConverter}}" />
             </StackPanel>
 
             <!--  Register Button  -->

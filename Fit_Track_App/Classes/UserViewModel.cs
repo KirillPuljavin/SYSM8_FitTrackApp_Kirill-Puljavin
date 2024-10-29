@@ -1,5 +1,6 @@
 ﻿using Fit_Track_App.Classes;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 
@@ -17,6 +18,7 @@ namespace Fit_Track_App.ViewModels
         public string Country { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
         public string UserName { get; set; }
 
         private DataManagement.User _loggedInUser;
@@ -26,24 +28,43 @@ namespace Fit_Track_App.ViewModels
             set { _loggedInUser = value; OnPropertyChanged(nameof(LoggedInUser)); }
         }
 
-        // Workout-related properties
-        public ObservableCollection<DataManagement.Workout> Workouts { get; }
-        private DataManagement.Workout _selectedWorkout;
-        public DataManagement.Workout SelectedWorkout
+        // Error message properties
+        private string _userNameError;
+        public string UserNameError
         {
-            get => _selectedWorkout;
-            set { _selectedWorkout = value; OnPropertyChanged(nameof(SelectedWorkout)); }
+            get => _userNameError;
+            set { _userNameError = value; OnPropertyChanged(nameof(UserNameError)); }
         }
 
-        public DateTime NewWorkoutDate { get; set; }
-        public string NewWorkoutType { get; set; }
-        public TimeSpan NewWorkoutDuration { get; set; }
-        public int NewWorkoutCalories { get; set; }
-        public string NewWorkoutNotes { get; set; }
+        private string _emailError;
+        public string EmailError
+        {
+            get => _emailError;
+            set { _emailError = value; OnPropertyChanged(nameof(EmailError)); }
+        }
+
+        private string _passwordError;
+        public string PasswordError
+        {
+            get => _passwordError;
+            set { _passwordError = value; OnPropertyChanged(nameof(PasswordError)); }
+        }
+
+        private string _confirmPasswordError;
+        public string ConfirmPasswordError
+        {
+            get => _confirmPasswordError;
+            set { _confirmPasswordError = value; OnPropertyChanged(nameof(ConfirmPasswordError)); }
+        }
+
+        private string _countryError;
+        public string CountryError
+        {
+            get => _countryError;
+            set { _countryError = value; OnPropertyChanged(nameof(CountryError)); }
+        }
 
         // Commands
-        public ICommand AddWorkoutCommand { get; }
-        public ICommand RemoveWorkoutCommand { get; }
         public ICommand RegisterCommand { get; }
         public ICommand LoginCommand { get; }
 
@@ -75,18 +96,84 @@ namespace Fit_Track_App.ViewModels
             }
         }
 
-        public void Register()
+        public bool Register()
         {
-            if (Users.Any(u => u.UserName == UserName))
+            // Clear previous error messages
+            UserNameError = "";
+            EmailError = "";
+            PasswordError = "";
+            ConfirmPasswordError = "";
+            CountryError = "";
+
+            bool isValid = true;
+
+            // Validate UserName
+            if (string.IsNullOrWhiteSpace(UserName))
             {
-                MessageBox.Show("Username already exists.");
+                UserNameError = "Username is required.";
+                isValid = false;
             }
-            else
+            else if (Users.Any(u => u.UserName == UserName))
+            {
+                UserNameError = "Username already exists.";
+                isValid = false;
+            }
+            else if (UserName.Length < 3 || !Regex.IsMatch(UserName, @"^[a-zA-Z0-9_\-\!\?\[\]]+$"))
+            {
+                UserNameError = "Username must be at least 3 characters and can contain letters, numbers, and only '_','-','!','?','[',']'.";
+                isValid = false;
+            }
+
+            // Validate Email
+            if (string.IsNullOrWhiteSpace(Email))
+            {
+                EmailError = "Email is required.";
+                isValid = false;
+            }
+            else if (!Regex.IsMatch(Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                EmailError = "Please enter a valid email address.";
+                isValid = false;
+            }
+
+            // Validate Password
+            if (string.IsNullOrWhiteSpace(Password))
+            {
+                PasswordError = "Password is required.";
+                isValid = false;
+            }
+            else if (Password.Length < 4 || !Regex.IsMatch(Password, @"^(?=.*[a-zA-Z])(?=.*[0-9]).+$"))
+            {
+                PasswordError = "Password must be at least 4 characters and contain both letters and numbers.";
+                isValid = false;
+            }
+
+            // Validate ConfirmPassword
+            if (string.IsNullOrWhiteSpace(ConfirmPassword))
+            {
+                ConfirmPasswordError = "Please confirm your password.";
+                isValid = false;
+            }
+            else if (Password != ConfirmPassword)
+            {
+                ConfirmPasswordError = "Passwords do not match.";
+                isValid = false;
+            }
+
+            // Validate Country
+            if (string.IsNullOrWhiteSpace(Country))
+            {
+                CountryError = "Country is required.";
+                isValid = false;
+            }
+
+            if (isValid)
             {
                 var newUser = new DataManagement.User(UserName, Email, Password, Country, false);
                 Users.Add(newUser);
-                MessageBox.Show("User registered successfully.");
             }
+
+            return isValid;
         }
     }
 }

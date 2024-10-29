@@ -26,7 +26,7 @@
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Height" Value="54" />
             <Setter Property="Width" Value="225" />
@@ -107,7 +107,7 @@
 
         <!--  Unified TextBox Style  -->
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property="FontSize" Value="16.2" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
@@ -118,7 +118,7 @@
 
         <!--  PasswordBox Style  -->
         <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
-            <Setter Property="FontSize" Value="16.2" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
@@ -138,7 +138,7 @@
 
         <!--  ComboBox Style  -->
         <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
-            <Setter Property="FontSize" Value="16.2" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
@@ -152,10 +152,9 @@
             </Style.Triggers>
         </Style>
 
-
         <!--  DatePicker Style  -->
         <Style x:Key="WorkoutsPageDatePickerStyle" TargetType="DatePicker">
-            <Setter Property="FontSize" Value="16.2" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
@@ -166,7 +165,7 @@
 
         <!--  Title Label Style  -->
         <Style x:Key="TitleLabelStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="57.6" />
+            <Setter Property="FontSize" Value="50" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -176,7 +175,7 @@
 
         <!--  Subtitle Label Style  -->
         <Style x:Key="SubtitleLabelStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="21.6" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="FontWeight" Value="Regular" />
             <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -186,7 +185,7 @@
 
         <!--  WorkoutsPage Title Style  -->
         <Style x:Key="WorkoutsPageTitleStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="43.2" />
+            <Setter Property="FontSize" Value="40" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -195,7 +194,7 @@
 
         <!--  WorkoutsPage Subtitle Style  -->
         <Style x:Key="WorkoutsPageSubtitleStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="21.6" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -204,7 +203,7 @@
 
         <!--  Workout ListBox Item Style  -->
         <Style x:Key="WorkoutListBoxItemStyle" TargetType="ListBoxItem">
-            <Setter Property="FontSize" Value="16.2" />
+            <Setter Property="FontSize" Value="20" />
             <Setter Property="Padding" Value="9" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="Background" Value="White" />

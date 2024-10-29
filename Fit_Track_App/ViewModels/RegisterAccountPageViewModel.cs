@@ -1,4 +1,5 @@
 ﻿using Fit_Track_App.Classes;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 
@@ -27,28 +28,34 @@ namespace Fit_Track_App.ViewModels
             set => UserViewModel.Instance.Password = value;
         }
 
+        public string ConfirmPassword
+        {
+            get => UserViewModel.Instance.ConfirmPassword;
+            set => UserViewModel.Instance.ConfirmPassword = value;
+        }
+
         public string Country
         {
             get => UserViewModel.Instance.Country;
             set => UserViewModel.Instance.Country = value;
         }
 
+        public string UserNameError => UserViewModel.Instance.UserNameError;
+        public string EmailError => UserViewModel.Instance.EmailError;
+        public string PasswordError => UserViewModel.Instance.PasswordError;
+        public string ConfirmPasswordError => UserViewModel.Instance.ConfirmPasswordError;
+        public string CountryError => UserViewModel.Instance.CountryError;
+
         public RegisterAccountPageViewModel()
         {
             RegisterCommand = new RelayCommand(OnRegister);
             BackCommand = new RelayCommand(OnBack);
+
+            UserViewModel.Instance.PropertyChanged += UserViewModel_PropertyChanged;
         }
 
         private void OnRegister(object parameter)
         {
-            if (string.IsNullOrWhiteSpace(UserName) || string.IsNullOrWhiteSpace(Email) ||
-                string.IsNullOrWhiteSpace(Password) || string.IsNullOrWhiteSpace(Country))
-            {
-                MessageBox.Show("Please fill in all fields.");
-                return;
-            }
-
-            // Register user through UserViewModel's Register method
             UserViewModel.Instance.Register();
         }
 
@@ -58,6 +65,20 @@ namespace Fit_Track_App.ViewModels
             {
                 accountWindow.Close();
             }
+        }
+
+        private void UserViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(UserViewModel.Instance.UserNameError))
+                OnPropertyChanged(nameof(UserNameError));
+            else if (e.PropertyName == nameof(UserViewModel.Instance.EmailError))
+                OnPropertyChanged(nameof(EmailError));
+            else if (e.PropertyName == nameof(UserViewModel.Instance.PasswordError))
+                OnPropertyChanged(nameof(PasswordError));
+            else if (e.PropertyName == nameof(UserViewModel.Instance.ConfirmPasswordError))
+                OnPropertyChanged(nameof(ConfirmPasswordError));
+            else if (e.PropertyName == nameof(UserViewModel.Instance.CountryError))
+                OnPropertyChanged(nameof(CountryError));
         }
     }
 }
