@@ -25,56 +25,119 @@
             <Label Content="Login to Fit Tracker PRO" Style="{StaticResource TitleLabelStyle}" />
         </StackPanel>
 
-        <!--  Username and Password Fields Container  -->
+        <!--  Username and Password Fields  -->
         <StackPanel
             Grid.Row="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Orientation="Vertical">
 
-            <StackPanel Margin="0,10" Orientation="Vertical">
-                <Label Content="Username" Style="{StaticResource InputLabel}" />
-                <TextBox
-                    x:Name="UsernameTextBox"
-                    Style="{StaticResource TextBoxStyle}"
-                    Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBlock
-                    MaxWidth="360"
-                    Foreground="Red"
-                    Text="{Binding UserNameError}"
-                    TextWrapping="Wrap"
-                    Visibility="{Binding UserNameError, Converter={StaticResource StringToVisibilityConverter}}" />
+            <StackPanel
+                x:Name="LoginFieldsPanel"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Vertical"
+                Visibility="{Binding Is2FAMode, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Invert}">
+
+                <StackPanel Margin="0,10" Orientation="Vertical">
+                    <Label Content="Username" Style="{StaticResource InputLabel}" />
+                    <TextBox
+                        x:Name="UsernameTextBox"
+                        Style="{StaticResource TextBoxStyle}"
+                        Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock
+                        MaxWidth="360"
+                        Foreground="Red"
+                        Text="{Binding UserNameError}"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding UserNameError, Converter={StaticResource StringToVisibilityConverter}}" />
+                </StackPanel>
+
+                <StackPanel Margin="0,10" Orientation="Vertical">
+                    <Label Content="Password" Style="{StaticResource InputLabel}" />
+                    <PasswordBox
+                        x:Name="PasswordBox"
+                        PasswordChanged="PasswordBox_PasswordChanged"
+                        Style="{StaticResource PasswordBoxStyle}" />
+                    <TextBlock
+                        MaxWidth="360"
+                        Foreground="Red"
+                        Text="{Binding PasswordError}"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding PasswordError, Converter={StaticResource StringToVisibilityConverter}}" />
+                </StackPanel>
             </StackPanel>
 
-            <StackPanel Margin="0,10" Orientation="Vertical">
-                <Label Content="Password" Style="{StaticResource InputLabel}" />
-                <PasswordBox
-                    x:Name="PasswordBox"
-                    PasswordChanged="PasswordBox_PasswordChanged"
-                    Style="{StaticResource PasswordBoxStyle}" />
-                <TextBlock
-                    MaxWidth="360"
-                    Foreground="Red"
-                    Text="{Binding PasswordError}"
-                    TextWrapping="Wrap"
-                    Visibility="{Binding PasswordError, Converter={StaticResource StringToVisibilityConverter}}" />
-            </StackPanel>
+            <!--  2FA Menu  -->
+            <StackPanel
+                x:Name="TwoFAFieldsPanel"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Vertical"
+                Visibility="{Binding Is2FAMode, Converter={StaticResource BooleanToVisibilityConverter}}">
 
+                <!--  New StackPanel for the message  -->
+                <StackPanel Margin="0,10" Orientation="Vertical">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource WorkoutsPageSubtitleStyle}"
+                        Text="A 6-digit code has been sent to:" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontWeight="Bold"
+                        Style="{StaticResource WorkoutsPageSubtitleStyle}"
+                        Text="{Binding Email}" />
+                </StackPanel>
+
+                <StackPanel Margin="0,10" Orientation="Vertical">
+                    <Label Content="Enter 6-digit Code" Style="{StaticResource InputLabel}" />
+                    <TextBox
+                        x:Name="TwoFACodeTextBox"
+                        Style="{StaticResource TextBoxStyle}"
+                        Text="{Binding TwoFACode, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock
+                        MaxWidth="360"
+                        Foreground="Red"
+                        Text="{Binding TwoFACodeError}"
+                        TextWrapping="Wrap"
+                        Visibility="{Binding TwoFACodeError, Converter={StaticResource StringToVisibilityConverter}}" />
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
 
-        <!--  Back and Login Buttons  -->
+        <!--  Buttons  -->
         <StackPanel
             Grid.Row="2"
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
-            <Button
-                Command="{Binding LoginCommand}"
-                Content="Login"
-                Style="{StaticResource ButtonStyle}" />
+
+            <StackPanel Orientation="Vertical" Visibility="{Binding Is2FAMode, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Invert}">
+                <Button
+                    Command="{Binding LoginCommand}"
+                    Content="Login"
+                    Style="{StaticResource ButtonStyle}" />
+                <Button
+                    Command="{Binding ForgotPasswordCommand}"
+                    Content="Forgot Password"
+                    Style="{StaticResource ButtonStyle}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Visibility="{Binding Is2FAMode, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Button
+                    Command="{Binding Verify2FACommand}"
+                    Content="Enter"
+                    Style="{StaticResource ButtonStyle}" />
+            </StackPanel>
+
+            <!--  Back Button (Always visible)  -->
             <Button
                 Command="{Binding BackCommand}"
                 Content="Back"
                 Style="{StaticResource ButtonStyle}" />
+
         </StackPanel>
+
     </Grid>
 </Page>

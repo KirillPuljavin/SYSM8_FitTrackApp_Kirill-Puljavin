@@ -75,7 +75,7 @@ namespace Fit_Track_App.ViewModels
             {
                 new DataManagement.User("admin", "admin@fittrack.com", "password", "Sweden", true),
                 new DataManagement.User("user", "user@fittrack.com", "password", "Sweden", false),
-                new DataManagement.User("2", "2", "2", "Sweden", false)
+                new DataManagement.User("qwe123", "thelegendaryyouth@gmail.com", "qwe123", "Sweden", true)
             };
 
             RegisterCommand = new RelayCommand(_ => Register());

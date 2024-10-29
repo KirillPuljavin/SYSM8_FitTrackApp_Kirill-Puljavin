@@ -20,6 +20,7 @@ namespace Fit_Track_App.ViewModels
             DataManagement.Workout newWorkout = type switch
             {
                 WorkoutType.Cardio => new DataManagement.CardioWorkout(date, "Cardio", duration, caloriesBurned, notes),
+
                 WorkoutType.Strength => new DataManagement.StrengthWorkout(date, "Strength", duration, caloriesBurned, notes),
                 _ => throw new ArgumentException("Invalid workout type")
             };

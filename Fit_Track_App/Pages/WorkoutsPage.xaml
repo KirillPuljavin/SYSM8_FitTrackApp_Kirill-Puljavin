@@ -27,7 +27,7 @@
                 Margin="20,10"
                 ItemContainerStyle="{StaticResource WorkoutListBoxItemStyle}"
                 ItemsSource="{Binding Workouts}"
-                SelectedItem="{Binding SelectedWorkout}">
+                SelectedItem="{Binding SelectedWorko12ut}">
 
                 <ListBox.ItemTemplate>
                     <DataTemplate>

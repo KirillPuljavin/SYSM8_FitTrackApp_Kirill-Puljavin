@@ -15,6 +15,8 @@
         {
             public string Country { get; set; }
             public bool IsAdmin { get; set; }
+            public string TwoFACode { get; set; }
+            public DateTime? TwoFACodeExpiry { get; set; }
 
             public User(string userName, string email, string password, string country, bool isAdmin) : base(userName, email, password)
             {
@@ -62,6 +64,7 @@
         {
             public CardioWorkout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes)
                 : base(date, type, duration, caloriesBurned, notes) { }
+
 
             public override int CalculateCaloriesBurned() => (int)(Duration.TotalMinutes * 10);
         }

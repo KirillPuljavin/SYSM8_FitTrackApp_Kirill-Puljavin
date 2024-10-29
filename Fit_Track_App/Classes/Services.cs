@@ -1,5 +1,8 @@
 ﻿using Fit_Track_App.Classes;
 using System.Collections.ObjectModel;
+using System.Net;
+using System.Net.Mail;
+using System.Windows;
 
 namespace Fit_Track_App.Services
 {
@@ -7,17 +10,60 @@ namespace Fit_Track_App.Services
     {
         private string _current2FACode;
 
-        public string Generate2FACode()
+        internal string Generate2FACode(DataManagement.User user)
         {
-            // Generate a 6-digit random code
             var random = new Random();
-            _current2FACode = random.Next(100000, 999999).ToString();
-            return _current2FACode;
+            var code = random.Next(100000, 999999).ToString();
+            user.TwoFACode = code;
+            user.TwoFACodeExpiry = DateTime.Now.AddMinutes(10); // Code valid for 10 minutes
+            return code;
         }
-
-        public bool Validate2FACode(string enteredCode)
+        internal bool Validate2FACode(DataManagement.User user, string enteredCode)
         {
-            return _current2FACode == enteredCode;
+            if (user.TwoFACode == enteredCode && DateTime.Now <= user.TwoFACodeExpiry)
+            {
+                user.TwoFACode = null;
+                user.TwoFACodeExpiry = null;
+                return true;
+            }
+            return false;
+        }
+        public void SendEmail(string toEmail, string code)
+        {
+            try // SEND EMAIL
+            {
+                var fromAddress = new MailAddress("fit.tracker.api@gmail.com", "Fit Tracker PRO");
+                var toAddress = new MailAddress(toEmail);
+                const string subject = "Your Fit Tracker PRO 2FA Code";
+                string body = $"Your 2FA code is: {code}";
+
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp-relay.brevo.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential("7ee2b5001@smtp-brevo.com", "wsdVKMAQSYZW8UPz")
+                };
+
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+                })
+                {
+                    smtp.Send(message);
+                }
+            }
+            catch (SmtpException ex)
+            {
+                MessageBox.Show("Failed to send email. Please check your email settings.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An unexpected error occurred. Please try again later.");
+            }
         }
 
         private ObservableCollection<DataManagement.User> _users;
