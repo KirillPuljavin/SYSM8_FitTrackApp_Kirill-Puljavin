@@ -22,15 +22,18 @@ internal class LoginPageViewModel : ViewModelBase
         set => UserViewModel.Instance.Password = value;
     }
 
-    private string _loginFeedback;
-    public string LoginFeedback
+    private string _userNameError;
+    public string UserNameError
     {
-        get => _loginFeedback;
-        set
-        {
-            _loginFeedback = value;
-            OnPropertyChanged(nameof(LoginFeedback));
-        }
+        get => _userNameError;
+        set { _userNameError = value; OnPropertyChanged(nameof(UserNameError)); }
+    }
+
+    private string _passwordError;
+    public string PasswordError
+    {
+        get => _passwordError;
+        set { _passwordError = value; OnPropertyChanged(nameof(PasswordError)); }
     }
 
     public LoginPageViewModel()
@@ -41,25 +44,44 @@ internal class LoginPageViewModel : ViewModelBase
 
     private void OnLogin(object parameter)
     {
-        var user = UserViewModel.Instance.Users
-            .FirstOrDefault(u => u.UserName == UserName);
+        UserNameError = "";
+        PasswordError = "";
 
-        if (user == null)
-        {
-            LoginFeedback = "User does not exist.";
-        }
-        else if (user.Password != Password)
-        {
-            LoginFeedback = "Incorrect password.";
-        }
-        else
-        {
-            UserViewModel.Instance.LoggedInUser = user;
-            LoginFeedback = string.Empty;
+        bool isValid = true;
 
-            if (Application.Current.MainWindow is MainWindow window)
+        if (string.IsNullOrWhiteSpace(UserName))
+        {
+            UserNameError = "Username is required.";
+            isValid = false;
+        }
+
+        if (string.IsNullOrWhiteSpace(Password))
+        {
+            PasswordError = "Password is required.";
+            isValid = false;
+        }
+
+        if (isValid)
+        {
+            var user = UserViewModel.Instance.Users
+                .FirstOrDefault(u => u.UserName == UserName);
+
+            if (user == null)
             {
-                window.MainFrame.Navigate(new WorkoutsPage());
+                UserNameError = "User does not exist.";
+            }
+            else if (user.Password != Password)
+            {
+                PasswordError = "Incorrect password.";
+            }
+            else
+            {
+                UserViewModel.Instance.LoggedInUser = user;
+
+                if (Application.Current.MainWindow is MainWindow window)
+                {
+                    window.MainFrame.Navigate(new WorkoutsPage());
+                }
             }
         }
     }

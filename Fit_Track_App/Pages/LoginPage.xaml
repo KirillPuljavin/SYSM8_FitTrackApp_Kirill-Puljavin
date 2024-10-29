@@ -32,27 +32,34 @@
             VerticalAlignment="Center"
             Orientation="Vertical">
 
-            <StackPanel Margin="0,10">
+            <StackPanel Margin="0,10" Orientation="Vertical">
                 <Label Content="Username" Style="{StaticResource InputLabel}" />
                 <TextBox
                     x:Name="UsernameTextBox"
                     Style="{StaticResource TextBoxStyle}"
                     Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock
+                    MaxWidth="360"
+                    Foreground="Red"
+                    Text="{Binding UserNameError}"
+                    TextWrapping="Wrap"
+                    Visibility="{Binding UserNameError, Converter={StaticResource StringToVisibilityConverter}}" />
             </StackPanel>
 
-            <StackPanel Margin="0,10">
+            <StackPanel Margin="0,10" Orientation="Vertical">
                 <Label Content="Password" Style="{StaticResource InputLabel}" />
                 <PasswordBox
                     x:Name="PasswordBox"
                     PasswordChanged="PasswordBox_PasswordChanged"
-                    Style="{StaticResource PasswordBoxStyle}"
-                    Tag="Password" />
+                    Style="{StaticResource PasswordBoxStyle}" />
+                <TextBlock
+                    MaxWidth="360"
+                    Foreground="Red"
+                    Text="{Binding PasswordError}"
+                    TextWrapping="Wrap"
+                    Visibility="{Binding PasswordError, Converter={StaticResource StringToVisibilityConverter}}" />
             </StackPanel>
 
-            <TextBlock
-                Foreground="Red"
-                Text="{Binding LoginFeedback}"
-                Visibility="{Binding LoginFeedback, Converter={StaticResource StringToVisibilityConverter}}" />
         </StackPanel>
 
         <!--  Back and Login Buttons  -->
