@@ -2,10 +2,7 @@
     x:Class="Fit_Track_App.Pages.LoginPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="LoginPage"
-    mc:Ignorable="d">
+    Title="LoginPage">
 
     <Grid
         HorizontalAlignment="Stretch"
@@ -34,7 +31,6 @@
 
             <StackPanel
                 x:Name="LoginFieldsPanel"
-                Grid.Row="1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Orientation="Vertical"
@@ -72,22 +68,20 @@
             <!--  2FA Menu  -->
             <StackPanel
                 x:Name="TwoFAFieldsPanel"
-                Grid.Row="1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Orientation="Vertical"
                 Visibility="{Binding Is2FAMode, Converter={StaticResource BooleanToVisibilityConverter}}">
 
-                <!--  New StackPanel for the message  -->
                 <StackPanel Margin="0,10" Orientation="Vertical">
                     <TextBlock
                         HorizontalAlignment="Center"
-                        Style="{StaticResource WorkoutsPageSubtitleStyle}"
+                        Style="{StaticResource SubtitleTextBlockStyle}"
                         Text="A 6-digit code has been sent to:" />
                     <TextBlock
                         HorizontalAlignment="Center"
                         FontWeight="Bold"
-                        Style="{StaticResource WorkoutsPageSubtitleStyle}"
+                        Style="{StaticResource SubtitleTextBlockStyle}"
                         Text="{Binding Email}" />
                 </StackPanel>
 
@@ -136,8 +130,6 @@
                 Command="{Binding BackCommand}"
                 Content="Back"
                 Style="{StaticResource ButtonStyle}" />
-
         </StackPanel>
-
     </Grid>
 </Page>

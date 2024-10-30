@@ -32,7 +32,7 @@ namespace Fit_Track_App.Services
         {
             try // SEND EMAIL
             {
-                var fromAddress = new MailAddress("fit.tracker.api@gmail.com", "Fit Tracker PRO");
+                var fromAddress = new MailAddress("thelegendaryyouth@gmail.com", "Fit Tracker PRO");
                 var toAddress = new MailAddress(toEmail);
                 const string subject = "Your Fit Tracker PRO 2FA Code";
                 string body = $"Your 2FA code is: {code}";

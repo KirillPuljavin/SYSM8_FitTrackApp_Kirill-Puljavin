@@ -6,140 +6,142 @@
 
     <Grid Background="{StaticResource LightGrayBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <!--  Left column, 25%  -->
+            <ColumnDefinition Width="2*" />
+            <!--  Middle column, 50%  -->
+            <ColumnDefinition Width="*" />
+            <!--  Right column, 25%  -->
+        </Grid.ColumnDefinitions>
 
-        <!--  Page Title  -->
+        <!--  Left Column - Filter Menu  -->
+        <Border
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="10"
+            Padding="10"
+            Background="White"
+            BorderBrush="{StaticResource CrimsonBrush}"
+            BorderThickness="1"
+            CornerRadius="10">
+            <StackPanel>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource SubtitleTextBlockStyle}"
+                    Text="Filter Workouts" />
+                <Label Content="Workout Type" Style="{StaticResource InputLabel}" />
+                <ComboBox
+                    DisplayMemberPath="DisplayName"
+                    ItemsSource="{Binding WorkoutTypesWithAllOption}"
+                    SelectedValue="{Binding SelectedFilterWorkoutType}"
+                    SelectedValuePath="Value"
+                    Style="{StaticResource ComboBoxStyle}" />
+
+                <Label
+                    Margin="0,10,0,0"
+                    Content="Start Date"
+                    Style="{StaticResource InputLabel}" />
+                <DatePicker SelectedDate="{Binding FilterStartDate}" Style="{StaticResource DatePickerStyle}" />
+
+                <Label
+                    Margin="0,10,0,0"
+                    Content="End Date"
+                    Style="{StaticResource InputLabel}" />
+                <DatePicker SelectedDate="{Binding FilterEndDate}" Style="{StaticResource DatePickerStyle}" />
+
+                <Label
+                    Margin="0,10,0,0"
+                    Content="Minimum Duration (Minutes)"
+                    Style="{StaticResource InputLabel}" />
+                <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding FilterDuration}" />
+
+                <Button
+                    Margin="0,20,0,0"
+                    Command="{Binding ApplyFiltersCommand}"
+                    Content="Apply Filters"
+                    Style="{StaticResource ButtonStyle}" />
+            </StackPanel>
+        </Border>
+
+        <!--  Middle Column - Workout List  -->
         <StackPanel
             Grid.Row="0"
-            Margin="0,10,0,5"
-            HorizontalAlignment="Center">
-            <TextBlock Style="{StaticResource WorkoutsPageTitleStyle}" Text="Manage Your Workouts" />
-        </StackPanel>
-
-        <!--  Centered Workout List  -->
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
-            <ListBox
-                Grid.Row="1"
-                Margin="20,10"
-                ItemContainerStyle="{StaticResource WorkoutListBoxItemStyle}"
-                ItemsSource="{Binding Workouts}"
-                SelectedItem="{Binding SelectedWorko12ut}">
-
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Margin="5,0" Orientation="Horizontal">
-                            <!--  Workout Type and Date  -->
-                            <StackPanel Width="100" Margin="0,0,20,0">
-                                <TextBlock
-                                    FontSize="14"
-                                    FontWeight="Bold"
-                                    Foreground="{StaticResource CrimsonBrush}"
-                                    Text="{Binding Type}" />
-                                <TextBlock
-                                    FontSize="12"
-                                    Foreground="{StaticResource GrayBrush}"
-                                    Text="{Binding Date, StringFormat='{}{0:yyyy-MM-dd}'}" />
-                            </StackPanel>
-
-                            <!--  Duration and Calories Columns  -->
-                            <StackPanel Width="100" Margin="0,0,20,0">
-                                <TextBlock
-                                    FontSize="12"
-                                    FontWeight="Bold"
-                                    Foreground="{StaticResource GrayBrush}"
-                                    Text="Duration" />
-                                <TextBlock FontSize="12" Text="{Binding Duration.TotalMinutes, StringFormat='{}{0} mins'}" />
-                            </StackPanel>
-
-
-                            <StackPanel Width="100" Margin="0,0,20,0">
-                                <TextBlock
-                                    FontSize="12"
-                                    FontWeight="Bold"
-                                    Foreground="{StaticResource GrayBrush}"
-                                    Text="Calories" />
-                                <TextBlock FontSize="12" Text="{Binding CaloriesBurned}" />
-                            </StackPanel>
-
-                            <!--  Notes Column  -->
-                            <StackPanel Width="100">
-                                <TextBlock
-                                    FontSize="12"
-                                    FontWeight="Bold"
-                                    Foreground="{StaticResource GrayBrush}"
-                                    Text="Notes" />
-                                <TextBlock
-                                    FontSize="12"
-                                    Text="{Binding Notes}"
-                                    TextWrapping="Wrap" />
-                            </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-        </StackPanel>
-
-        <!--  Workout Input Fields Split Horizontally  -->
-        <StackPanel
-            Grid.Row="2"
-            Margin="10,10"
-            HorizontalAlignment="Center"
-            Orientation="Vertical">
-            <TextBlock Style="{StaticResource WorkoutsPageSubtitleStyle}" Text="Add New Workout" />
-
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <!--  Date and Workout Type  -->
-                <StackPanel Margin="5" Orientation="Vertical">
-                    <Label Content="Date" Style="{StaticResource InputLabel}" />
-                    <DatePicker
-                        DisplayDate="2024-01-01"
-                        SelectedDate="{Binding NewWorkoutDate}"
-                        Style="{StaticResource WorkoutsPageDatePickerStyle}" />
-                </StackPanel>
-
-                <StackPanel Margin="5" Orientation="Vertical">
-                    <Label Content="Workout Type" Style="{StaticResource InputLabel}" />
-                    <ComboBox SelectedItem="{Binding NewWorkoutType}" Style="{StaticResource ComboBoxStyle}">
-                        <ComboBoxItem Content="Cardio" />
-                        <ComboBoxItem Content="Strength" />
-                    </ComboBox>
-                </StackPanel>
-            </StackPanel>
-
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <!--  Duration and Calories  -->
-                <StackPanel Margin="5" Orientation="Vertical">
-                    <Label Content="Duration (Minutes)" Style="{StaticResource InputLabel}" />
-                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding NewWorkoutDuration}" />
-                </StackPanel>
-                <StackPanel Margin="5" Orientation="Vertical">
-                    <Label Content="Calories Burned" Style="{StaticResource InputLabel}" />
-                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding NewWorkoutCalories}" />
-                </StackPanel>
-            </StackPanel>
-
-            <!--  Notes Field  -->
-            <StackPanel
-                Margin="5"
+            Grid.Column="1"
+            Margin="10">
+            <TextBlock
                 HorizontalAlignment="Center"
-                Orientation="Vertical">
-                <Label Content="Notes" Style="{StaticResource InputLabel}" />
-                <TextBox
-                    Width="410"
-                    Style="{StaticResource TextBoxStyle}"
-                    Text="{Binding NewWorkoutNotes}" />
-            </StackPanel>
+                Style="{StaticResource SubtitleTextBlockStyle}"
+                Text="Workout List" />
+            <Border
+                Padding="10"
+                BorderBrush="{StaticResource CrimsonBrush}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <ScrollViewer Height="400" VerticalScrollBarVisibility="Auto">
+                    <ListBox
+                        ItemContainerStyle="{StaticResource ListBoxItemStyle}"
+                        ItemsSource="{Binding FilteredWorkouts}"
+                        SelectedItem="{Binding SelectedWorkout}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="5,0" Orientation="Horizontal">
+                                    <StackPanel Width="100" Margin="0,0,20,0">
+                                        <TextBlock
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Foreground="{StaticResource CrimsonBrush}"
+                                            Text="{Binding Type}" />
+                                        <TextBlock
+                                            FontSize="12"
+                                            Foreground="{StaticResource GrayBrush}"
+                                            Text="{Binding Date, StringFormat='{}{0:yyyy-MM-dd}'}" />
+                                    </StackPanel>
+                                    <StackPanel Width="100" Margin="0,0,20,0">
+                                        <TextBlock
+                                            FontSize="12"
+                                            FontWeight="Bold"
+                                            Foreground="{StaticResource GrayBrush}"
+                                            Text="Duration" />
+                                        <TextBlock FontSize="12" Text="{Binding Duration.TotalMinutes, StringFormat='{}{0} mins'}" />
+                                    </StackPanel>
+                                    <StackPanel Width="100" Margin="0,0,20,0">
+                                        <TextBlock
+                                            FontSize="12"
+                                            FontWeight="Bold"
+                                            Foreground="{StaticResource GrayBrush}"
+                                            Text="Calories" />
+                                        <TextBlock FontSize="12" Text="{Binding CaloriesBurned}" />
+                                    </StackPanel>
+                                    <StackPanel Width="100">
+                                        <TextBlock
+                                            FontSize="12"
+                                            FontWeight="Bold"
+                                            Foreground="{StaticResource GrayBrush}"
+                                            Text="Notes" />
+                                        <TextBlock
+                                            FontSize="12"
+                                            Text="{Binding Notes}"
+                                            TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </Border>
         </StackPanel>
 
-        <!--  Action Buttons  -->
+        <!--  Right Column - Empty for now  -->
+
+        <!--  Add/Remove Buttons  -->
         <StackPanel
-            Grid.Row="3"
-            Margin="10"
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            Margin="0,20,0,10"
             HorizontalAlignment="Center"
             Orientation="Horizontal">
             <Button
@@ -153,5 +155,6 @@
                 Content="Remove Workout"
                 Style="{StaticResource ButtonStyle}" />
         </StackPanel>
+
     </Grid>
 </Page>

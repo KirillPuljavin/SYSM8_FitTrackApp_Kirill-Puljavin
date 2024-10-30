@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Fit_Track_App.Classes"
     StartupUri="MainWindow.xaml">
-
     <Application.Resources>
         <local:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
         <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
@@ -154,7 +153,7 @@
         </Style>
 
         <!--  DatePicker Style  -->
-        <Style x:Key="WorkoutsPageDatePickerStyle" TargetType="DatePicker">
+        <Style x:Key="DatePickerStyle" TargetType="DatePicker">
             <Setter Property="FontSize" Value="20" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="Background" Value="White" />
@@ -184,17 +183,8 @@
             <Setter Property="Margin" Value="0,9,0,0" />
         </Style>
 
-        <!--  WorkoutsPage Title Style  -->
-        <Style x:Key="WorkoutsPageTitleStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="40" />
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Margin" Value="0,18,0,9" />
-        </Style>
-
-        <!--  WorkoutsPage Subtitle Style  -->
-        <Style x:Key="WorkoutsPageSubtitleStyle" TargetType="TextBlock">
+        <!--  Subtitle TextBlock Style  -->
+        <Style x:Key="SubtitleTextBlockStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="20" />
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
@@ -202,8 +192,8 @@
             <Setter Property="Margin" Value="0,9,0,4.5" />
         </Style>
 
-        <!--  Workout ListBox Item Style  -->
-        <Style x:Key="WorkoutListBoxItemStyle" TargetType="ListBoxItem">
+        <!--  ListBoxItem Style  -->
+        <Style x:Key="ListBoxItemStyle" TargetType="ListBoxItem">
             <Setter Property="FontSize" Value="20" />
             <Setter Property="Padding" Value="9" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
@@ -213,12 +203,18 @@
             <Setter Property="Margin" Value="4.5,1.8" />
         </Style>
 
-        <!--  WorkoutsPage Button Style  -->
-        <Style
-            x:Key="WorkoutsPageButtonStyle"
-            BasedOn="{StaticResource ButtonStyle}"
-            TargetType="Button">
-            <Setter Property="Width" Value="135" />
+        <!--  Additional Label Styles  -->
+        <Style x:Key="SmallLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+        <Style x:Key="MediumLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
         </Style>
     </Application.Resources>
 </Application>
