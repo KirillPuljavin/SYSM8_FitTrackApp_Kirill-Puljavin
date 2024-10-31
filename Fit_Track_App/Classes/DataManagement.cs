@@ -79,6 +79,13 @@ namespace Fit_Track_App.Classes
 
             public override int CalculateCaloriesBurned() => (int)(Duration.TotalMinutes * 8);
         }
+
+        public static List<string> Countries { get; } = new List<string> {
+                "Sweden", "Norway", "Denmark", "Finland", "Iceland", "Germany", "France", "Spain",
+                "Italy", "Netherlands", "Belgium", "Luxembourg", "Austria", "Switzerland", "Ireland",
+                "Portugal", "Greece", "Czech Republic", "Poland", "Hungary", "Romania", "Bulgaria",
+                "Estonia", "Latvia", "Lithuania", "Slovakia", "Slovenia", "Croatia", "Cyprus", "Malta"
+            };
     }
 
     public enum WorkoutType

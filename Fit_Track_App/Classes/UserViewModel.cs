@@ -1,6 +1,5 @@
 ﻿using Fit_Track_App.Classes;
 using System.Collections.ObjectModel;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 
@@ -95,19 +94,17 @@ namespace Fit_Track_App.ViewModels
 
         public bool Register()
         {
-            // Clear previous error messages
-            UserNameError = "";
-            EmailError = "";
-            PasswordError = "";
-            ConfirmPasswordError = "";
-            CountryError = "";
-
+            UserNameError = string.Empty;
+            EmailError = string.Empty;
+            PasswordError = string.Empty;
+            ConfirmPasswordError = string.Empty;
+            CountryError = string.Empty;
             bool isValid = true;
 
             // Validate UserName
-            if (string.IsNullOrWhiteSpace(UserName))
+            if (!Validator.ValidateUserName(UserName, out string userNameError))
             {
-                UserNameError = "Username is required.";
+                UserNameError = userNameError;
                 isValid = false;
             }
             else if (Users.Any(u => u.UserName == UserName))
@@ -115,45 +112,25 @@ namespace Fit_Track_App.ViewModels
                 UserNameError = "Username already exists.";
                 isValid = false;
             }
-            else if (UserName.Length < 3 || !Regex.IsMatch(UserName, @"^[a-zA-Z0-9_\-\!\?\[\]]+$"))
-            {
-                UserNameError = "Username must be at least 3 characters and can contain letters, numbers, and only '_','-','!','?','[',']'.";
-                isValid = false;
-            }
 
             // Validate Email
-            if (string.IsNullOrWhiteSpace(Email))
+            if (!Validator.ValidateEmail(Email, out string emailError))
             {
-                EmailError = "Email is required.";
-                isValid = false;
-            }
-            else if (!Regex.IsMatch(Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-            {
-                EmailError = "Please enter a valid email address.";
+                EmailError = emailError;
                 isValid = false;
             }
 
             // Validate Password
-            if (string.IsNullOrWhiteSpace(Password))
+            if (!Validator.ValidatePassword(Password, out string passwordError))
             {
-                PasswordError = "Password is required.";
-                isValid = false;
-            }
-            else if (Password.Length < 4 || !Regex.IsMatch(Password, @"^(?=.*[a-zA-Z])(?=.*[0-9]).+$"))
-            {
-                PasswordError = "Password must be at least 4 characters and contain both letters and numbers.";
+                PasswordError = passwordError;
                 isValid = false;
             }
 
             // Validate ConfirmPassword
-            if (string.IsNullOrWhiteSpace(ConfirmPassword))
+            if (!Validator.ValidateConfirmPassword(Password, ConfirmPassword, out string confirmPasswordError))
             {
-                ConfirmPasswordError = "Please confirm your password.";
-                isValid = false;
-            }
-            else if (Password != ConfirmPassword)
-            {
-                ConfirmPasswordError = "Passwords do not match.";
+                ConfirmPasswordError = confirmPasswordError;
                 isValid = false;
             }
 
@@ -168,9 +145,14 @@ namespace Fit_Track_App.ViewModels
             {
                 var newUser = new DataManagement.User(UserName, Email, Password, Country, false);
                 Users.Add(newUser);
+                MessageBox.Show("Account Registered!");
+                if (Application.Current.Windows.OfType<AccountWindow>().FirstOrDefault() is AccountWindow accountWindow)
+                {
+                    accountWindow.Close();
+                }
             }
-
             return isValid;
         }
+
     }
 }

@@ -23,7 +23,6 @@ namespace Fit_Track_App.ViewModels
         }
         public string Email { get; set; }
         public string SelectedCountry { get; set; }
-        public List<string> EuropeanCountries { get; }
         public string CurrentPassword { private get; set; }
         public string NewPassword { private get; set; }
         public string ConfirmNewPassword { private get; set; }
@@ -49,14 +48,6 @@ namespace Fit_Track_App.ViewModels
             ResetWorkoutsCommand = new RelayCommand(_ => ResetWorkouts());
             BackCommand = new RelayCommand(_ => NavigateBack());
             LogoutCommand = new RelayCommand(_ => Logout());
-
-            EuropeanCountries = new List<string>
-            {
-                "Sweden", "Norway", "Denmark", "Finland", "Iceland", "Germany", "France", "Spain",
-                "Italy", "Netherlands", "Belgium", "Luxembourg", "Austria", "Switzerland", "Ireland",
-                "Portugal", "Greece", "Czech Republic", "Poland", "Hungary", "Romania", "Bulgaria",
-                "Estonia", "Latvia", "Lithuania", "Slovakia", "Slovenia", "Croatia", "Cyprus", "Malta"
-            };
 
             LoadUserData();
         }
@@ -90,24 +81,26 @@ namespace Fit_Track_App.ViewModels
             ClearPasswordErrors();
             bool isValid = true;
 
-            // Validate Current Password
+            // Validate Current Password and if New Password is the same as Current Password
             if (UserViewModel.Instance.LoggedInUser.Password != CurrentPassword || NewPassword == UserViewModel.Instance.LoggedInUser.Password)
             {
                 CurrentPasswordError = "Incorrect current password.";
                 OnPropertyChanged(nameof(CurrentPasswordError));
                 isValid = false;
             }
-            // Validate New Password Criteria
-            if (string.IsNullOrWhiteSpace(NewPassword) || NewPassword.Length < 4 || !Regex.IsMatch(NewPassword, @"^(?=.*[a-zA-Z])(?=.*\d).{4,}$"))
+
+            // Validate New Password
+            if (!Validator.ValidatePassword(NewPassword, out string newPasswordError))
             {
-                NewPasswordError = "Password must be at least 4 characters, with one letter and one number.";
+                NewPasswordError = newPasswordError;
                 OnPropertyChanged(nameof(NewPasswordError));
                 isValid = false;
             }
+
             // Check if New Password Matches Confirm Password
-            if (NewPassword != ConfirmNewPassword)
+            if (!Validator.ValidateConfirmPassword(NewPassword, ConfirmNewPassword, out string confirmPasswordError))
             {
-                ConfirmNewPasswordError = "Passwords do not match.";
+                ConfirmNewPasswordError = confirmPasswordError;
                 OnPropertyChanged(nameof(ConfirmNewPasswordError));
                 isValid = false;
             }
@@ -119,19 +112,18 @@ namespace Fit_Track_App.ViewModels
 
         private bool ValidateUserName()
         {
-            // Minimum 3 characters, only allows alphanumeric with _-! symbols
-            if (string.IsNullOrWhiteSpace(UserName) || UserName.Length < 3 ||
-                !Regex.IsMatch(UserName, @"^[a-zA-Z0-9_\-!]{3,}$"))
+            if (!Validator.ValidateUserName(UserName, out string userNameError))
             {
-                UserNameError = "Username must be at least 3 characters and can contain letters, numbers, and symbols: _ - !";
+                UserNameError = userNameError;
                 OnPropertyChanged(nameof(UserNameError));
                 return false;
             }
 
-            UserNameError = null;
+            UserNameError = string.Empty;
             OnPropertyChanged(nameof(UserNameError));
             return true;
         }
+
 
 
         private bool ValidateEmail()

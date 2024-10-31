@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
@@ -109,6 +110,55 @@ namespace Fit_Track_App.Classes
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
+        }
+    }
+
+    internal static class Validator
+    {
+        public static bool ValidateUserName(string userName, out string errorMessage)
+        {
+            if (string.IsNullOrWhiteSpace(userName) || userName.Length < 3 ||
+                !Regex.IsMatch(userName, @"^[a-zA-Z0-9_\-!]{3,}$"))
+            {
+                errorMessage = "Username must be at least 3 characters and can contain letters, numbers, and symbols: _ - !";
+                return false;
+            }
+            errorMessage = string.Empty;
+            return true;
+        }
+
+        public static bool ValidateEmail(string email, out string errorMessage)
+        {
+            if (string.IsNullOrWhiteSpace(email) || !Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                errorMessage = "Please enter a valid email address.";
+                return false;
+            }
+            errorMessage = string.Empty;
+            return true;
+        }
+
+        public static bool ValidatePassword(string password, out string errorMessage)
+        {
+            if (string.IsNullOrWhiteSpace(password) || password.Length < 4 ||
+                !Regex.IsMatch(password, @"^(?=.*[a-zA-Z])(?=.*\d).{4,}$"))
+            {
+                errorMessage = "Password must be at least 4 characters, with one letter and one number.";
+                return false;
+            }
+            errorMessage = string.Empty;
+            return true;
+        }
+
+        public static bool ValidateConfirmPassword(string password, string confirmPassword, out string errorMessage)
+        {
+            if (password != confirmPassword)
+            {
+                errorMessage = "Passwords do not match.";
+                return false;
+            }
+            errorMessage = string.Empty;
+            return true;
         }
     }
 }
