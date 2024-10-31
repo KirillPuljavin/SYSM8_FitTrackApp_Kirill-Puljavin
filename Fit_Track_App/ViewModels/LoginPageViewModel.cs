@@ -27,7 +27,6 @@ namespace Fit_Track_App.ViewModels
             Is2FAMode = false;
         }
 
-        // Properties for Login Fields
         public string UserName
         {
             get => UserViewModel.Instance.UserName;
@@ -47,18 +46,7 @@ namespace Fit_Track_App.ViewModels
                 OnPropertyChanged(nameof(Password));
             }
         }
-        public string Email
-        {
-            get => UserViewModel.Instance.Email;
-            set
-            {
-                UserViewModel.Instance.Email = value;
-                OnPropertyChanged(nameof(Email));
-            }
-        }
 
-
-        // Properties for 2FA Fields
         private string _twoFACode;
         public string TwoFACode
         {
@@ -66,7 +54,6 @@ namespace Fit_Track_App.ViewModels
             set { _twoFACode = value; OnPropertyChanged(nameof(TwoFACode)); }
         }
 
-        // Error Messages
         private string _userNameError;
         public string UserNameError
         {
@@ -88,7 +75,6 @@ namespace Fit_Track_App.ViewModels
             set { _twoFACodeError = value; OnPropertyChanged(nameof(TwoFACodeError)); }
         }
 
-        // Visibility Controls
         private bool _is2FAMode;
         public bool Is2FAMode
         {
@@ -96,7 +82,6 @@ namespace Fit_Track_App.ViewModels
             set { _is2FAMode = value; OnPropertyChanged(nameof(Is2FAMode)); }
         }
 
-        // Command Implementations
         private void OnLogin(object parameter)
         {
             ClearErrors();
@@ -117,8 +102,7 @@ namespace Fit_Track_App.ViewModels
 
             if (isValid)
             {
-                var user = UserViewModel.Instance.Users
-                    .FirstOrDefault(u => u.UserName == UserName);
+                var user = UserViewModel.Instance.Users.FirstOrDefault(u => u.UserName == UserName);
 
                 if (user == null)
                 {
@@ -130,8 +114,8 @@ namespace Fit_Track_App.ViewModels
                 }
                 else
                 {
+                    // Successful login
                     UserViewModel.Instance.LoggedInUser = user;
-
                     if (Application.Current.MainWindow is MainWindow window)
                     {
                         window.MainFrame.Navigate(new WorkoutsPage());
@@ -155,16 +139,14 @@ namespace Fit_Track_App.ViewModels
             if (user != null)
             {
                 Is2FAMode = true;
-                Email = user.Email;
                 string code = _userService.Generate2FACode(user);
-                _userService.SendEmail(user.Email, code);
+                new EmailCodeWindow(code).ShowDialog();
             }
             else
             {
                 UserNameError = "User does not exist.";
             }
         }
-
 
         private void OnVerify2FA(object parameter)
         {
@@ -180,16 +162,14 @@ namespace Fit_Track_App.ViewModels
 
             if (user != null)
             {
-                if (_userService.Validate2FACode(user, TwoFACode))
+                if (_userService.Validate2FACode(user, TwoFACode)) // VALID 2FA CODE
                 {
-                    // Code is valid, reset password or navigate to main page
                     UserViewModel.Instance.LoggedInUser = user;
                     Is2FAMode = false;
 
-                    // Navigate to the main page
                     if (Application.Current.MainWindow is MainWindow window)
                     {
-                        window.MainFrame.Navigate(new WorkoutsPage());
+                        window.MainFrame.Navigate(new ResetPasswordPage());
                     }
                 }
                 else

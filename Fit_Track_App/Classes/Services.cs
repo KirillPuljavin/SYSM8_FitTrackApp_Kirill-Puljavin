@@ -15,9 +15,10 @@ namespace Fit_Track_App.Services
             var random = new Random();
             var code = random.Next(100000, 999999).ToString();
             user.TwoFACode = code;
-            user.TwoFACodeExpiry = DateTime.Now.AddMinutes(10); // Code valid for 10 minutes
+            user.TwoFACodeExpiry = DateTime.Now.AddMinutes(10);
             return code;
         }
+
         internal bool Validate2FACode(DataManagement.User user, string enteredCode)
         {
             if (user.TwoFACode == enteredCode && DateTime.Now <= user.TwoFACodeExpiry)
@@ -28,6 +29,7 @@ namespace Fit_Track_App.Services
             }
             return false;
         }
+
         public void SendEmail(string toEmail, string code)
         {
             try // SEND EMAIL
