@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Fit_Track_App.Classes
 {
@@ -42,15 +44,40 @@ namespace Fit_Track_App.Classes
             public void ManageUsers() => throw new System.NotImplementedException();
         }
 
-        public abstract class Workout
+        public abstract class Workout : INotifyPropertyChanged
         {
-            public DateTime Date { get; set; }
-            public string Type { get; set; }
-            public TimeSpan Duration { get; set; }
-            public int CaloriesBurned { get; set; }
-            public string Notes { get; set; }
-            public string Summary => $"{Date.ToShortDateString()} - {Type}: {Duration.TotalMinutes} mins, {CaloriesBurned} cal";
+            private DateTime _date;
+            private string _type;
+            private TimeSpan _duration;
+            private int _caloriesBurned;
+            private string _notes;
 
+            public event PropertyChangedEventHandler? PropertyChanged;
+            public DateTime Date
+            {
+                get => _date;
+                set { _date = value; OnPropertyChanged(); }
+            }
+            public string Type
+            {
+                get => _type;
+                set { _type = value; OnPropertyChanged(); }
+            }
+            public TimeSpan Duration
+            {
+                get => _duration;
+                set { _duration = value; OnPropertyChanged(); }
+            }
+            public int CaloriesBurned
+            {
+                get => _caloriesBurned;
+                set { _caloriesBurned = value; OnPropertyChanged(); }
+            }
+            public string Notes
+            {
+                get => _notes;
+                set { _notes = value; OnPropertyChanged(); }
+            }
             protected Workout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes)
             {
                 Date = date;
@@ -58,6 +85,11 @@ namespace Fit_Track_App.Classes
                 Duration = duration;
                 CaloriesBurned = caloriesBurned;
                 Notes = notes;
+            }
+
+            protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
 
             public abstract int CalculateCaloriesBurned();

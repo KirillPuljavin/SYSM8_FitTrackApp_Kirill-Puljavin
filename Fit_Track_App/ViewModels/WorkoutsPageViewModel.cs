@@ -1,5 +1,6 @@
 ﻿using Fit_Track_App.Classes;
 using Fit_Track_App.Pages;
+using Fit_Track_App.Windows;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -16,110 +17,92 @@ namespace Fit_Track_App.ViewModels
 
     internal class WorkoutsPageViewModel : ViewModelBase
     {
-        public ObservableCollection<DataManagement.Workout> Workouts => WorkoutViewModel.Instance.Workouts;
-
-        private ICollectionView _filteredWorkouts;
-        public ICollectionView FilteredWorkouts
-        {
-            get => _filteredWorkouts;
-            set
-            {
-                _filteredWorkouts = value;
-                OnPropertyChanged(nameof(FilteredWorkouts));
-            }
-        }
-
-        private DataManagement.Workout _selectedWorkout;
-        public DataManagement.Workout SelectedWorkout
-        {
-            get => _selectedWorkout;
-            set
-            {
-                _selectedWorkout = value;
-                OnPropertyChanged(nameof(SelectedWorkout));
-                OnPropertyChanged(nameof(CanEditOrRemove));
-            }
-        }
-
-        public string LoggedInUsername { get; } = UserViewModel.Instance.UserName;
-
+        // Properties for adding a new workout
         public DateTime NewWorkoutDate { get; set; } = DateTime.Today;
         public WorkoutType NewWorkoutType { get; set; } = WorkoutType.Cardio;
         public int NewWorkoutDuration { get; set; }
         public int NewWorkoutCalories { get; set; }
         public string NewWorkoutNotes { get; set; }
 
+        // Properties for filtering
+        private WorkoutType? _selectedFilterWorkoutType;
+        private DateTime? _filterStartDate;
+        private DateTime? _filterEndDate;
+        private int? _filterDuration;
 
-        public IEnumerable<WorkoutType> WorkoutTypes { get; }
-        public IEnumerable<WorkoutTypeOption> WorkoutTypesWithAllOption { get; }
-
-        private WorkoutType? _selectedFilterWorkoutType = null;
         public WorkoutType? SelectedFilterWorkoutType
         {
             get => _selectedFilterWorkoutType;
-            set
-            {
-                _selectedFilterWorkoutType = value;
-                OnPropertyChanged(nameof(SelectedFilterWorkoutType));
-                ApplyFilters();
-            }
+            set { _selectedFilterWorkoutType = value; OnPropertyChanged(); ApplyFilters(); }
         }
 
-        private DateTime? _filterStartDate;
         public DateTime? FilterStartDate
         {
             get => _filterStartDate;
-            set
-            {
-                _filterStartDate = value;
-                OnPropertyChanged(nameof(FilterStartDate));
-                ApplyFilters();
-            }
+            set { _filterStartDate = value; OnPropertyChanged(); ApplyFilters(); }
         }
 
-        private DateTime? _filterEndDate;
         public DateTime? FilterEndDate
         {
             get => _filterEndDate;
-            set
-            {
-                _filterEndDate = value;
-                OnPropertyChanged(nameof(FilterEndDate));
-                ApplyFilters();
-            }
+            set { _filterEndDate = value; OnPropertyChanged(); ApplyFilters(); }
         }
 
-        private int? _filterDuration;
         public int? FilterDuration
         {
             get => _filterDuration;
-            set
-            {
-                _filterDuration = value;
-                OnPropertyChanged(nameof(FilterDuration));
-                ApplyFilters();
-            }
+            set { _filterDuration = value; OnPropertyChanged(); ApplyFilters(); }
         }
 
+        // Logged-in username for display
+        public string LoggedInUsername { get; } = UserViewModel.Instance.UserName;
+
+        // Workouts collection and filtered view
+        public ObservableCollection<DataManagement.Workout> Workouts => WorkoutViewModel.Instance.Workouts;
+
+        private ICollectionView _filteredWorkouts;
+        public ICollectionView FilteredWorkouts
+        {
+            get => _filteredWorkouts;
+            private set { _filteredWorkouts = value; OnPropertyChanged(); }
+        }
+
+        private DataManagement.Workout _selectedWorkout;
+        public DataManagement.Workout SelectedWorkout
+        {
+            get => _selectedWorkout;
+            set { _selectedWorkout = value; OnPropertyChanged(); OnPropertyChanged(nameof(CanEditOrRemove)); }
+        }
+
+        public bool CanEditOrRemove => SelectedWorkout != null;
+
+        // Available workout types with "All" option for filtering
+        public IEnumerable<WorkoutType> WorkoutTypes { get; }
+        public IEnumerable<WorkoutTypeOption> WorkoutTypesWithAllOption { get; }
+
+        // Commands
         public ICommand AddWorkoutCommand { get; }
         public ICommand RemoveWorkoutCommand { get; }
         public ICommand ApplyFiltersCommand { get; }
         public ICommand OpenUserDetailsCommand { get; }
         public ICommand InfoCommand { get; }
-
-        public bool CanEditOrRemove => SelectedWorkout != null;
+        public ICommand EditWorkoutCommand { get; }
 
         public WorkoutsPageViewModel()
         {
+            // Initialize commands
             AddWorkoutCommand = new RelayCommand(_ => AddWorkout(), _ => CanAddWorkout());
             RemoveWorkoutCommand = new RelayCommand(_ => RemoveWorkout(), _ => CanEditOrRemove);
             ApplyFiltersCommand = new RelayCommand(_ => ApplyFilters());
             OpenUserDetailsCommand = new RelayCommand(_ => OpenUserDetailsPage());
             InfoCommand = new RelayCommand(_ => ShowInfo());
+            EditWorkoutCommand = new RelayCommand((workout) => OpenEditWorkoutWindow(workout as DataManagement.Workout));
 
+            // Set up filtering for workouts
             _filteredWorkouts = CollectionViewSource.GetDefaultView(Workouts);
             _filteredWorkouts.Filter = FilterWorkouts;
 
+            // Initialize available workout types
             WorkoutTypes = Enum.GetValues(typeof(WorkoutType)).Cast<WorkoutType>();
             WorkoutTypesWithAllOption = new List<WorkoutTypeOption>
             {
@@ -127,6 +110,21 @@ namespace Fit_Track_App.ViewModels
             }
             .Concat(WorkoutTypes.Select(wt => new WorkoutTypeOption { DisplayName = wt.ToString(), Value = wt }))
             .ToList();
+
+            // Refresh filtered view when collection changes
+            Workouts.CollectionChanged += (s, e) => ApplyFilters();
+        }
+
+        // Methods
+        private void OpenEditWorkoutWindow(DataManagement.Workout workout)
+        {
+            if (workout == null) return;
+
+            var editWindow = new WorkoutChangeWindow(workout);
+            if (editWindow.ShowDialog() == true)
+            {
+                ApplyFilters(); // Refresh view after editing
+            }
         }
 
         private bool CanAddWorkout()
@@ -142,9 +140,18 @@ namespace Fit_Track_App.ViewModels
                 return;
             }
 
-            var durationTimeSpan = TimeSpan.FromMinutes(NewWorkoutDuration);
-            WorkoutViewModel.Instance.AddWorkout(NewWorkoutDate, NewWorkoutType, durationTimeSpan, NewWorkoutCalories, NewWorkoutNotes);
+            DataManagement.Workout newWorkout;
 
+            if (NewWorkoutType == WorkoutType.Cardio)
+            {
+                newWorkout = new DataManagement.CardioWorkout(NewWorkoutDate, "Cardio", TimeSpan.FromMinutes(NewWorkoutDuration), NewWorkoutCalories, NewWorkoutNotes);
+            }
+            else
+            {
+                newWorkout = new DataManagement.StrengthWorkout(NewWorkoutDate, "Strength", TimeSpan.FromMinutes(NewWorkoutDuration), NewWorkoutCalories, NewWorkoutNotes);
+            }
+
+            Workouts.Add(newWorkout);
             ClearWorkoutInputFields();
         }
 
@@ -152,7 +159,7 @@ namespace Fit_Track_App.ViewModels
         {
             if (SelectedWorkout != null)
             {
-                WorkoutViewModel.Instance.RemoveWorkout(SelectedWorkout);
+                Workouts.Remove(SelectedWorkout);
                 SelectedWorkout = null;
             }
             else
@@ -202,6 +209,7 @@ namespace Fit_Track_App.ViewModels
                 window.MainFrame.Navigate(new UserDetailsPage());
             }
         }
+
         private void ShowInfo()
         {
             string infoMessage = "Welcome to Fit Tracker PRO!\n\n" +

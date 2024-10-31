@@ -104,6 +104,29 @@
             </Style.Triggers>
         </Style>
 
+        <!--  Define EditButtonStyle for a subtle button look  -->
+        <Style x:Key="EditButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource LightGrayBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Padding" Value="5,2" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Margin" Value="5" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource CrimsonBrush}" />
+                    <Setter Property="Foreground" Value="White" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{StaticResource LightGrayBrush}" />
+                    <Setter Property="Foreground" Value="{StaticResource CrimsonBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <!--  Input Label Style  -->
         <Style x:Key="InputLabel" TargetType="Label">
             <Setter Property="FontSize" Value="13" />

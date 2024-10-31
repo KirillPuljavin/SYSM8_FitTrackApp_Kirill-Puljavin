@@ -125,6 +125,7 @@
                                             <ColumnDefinition Width="100" />
                                             <ColumnDefinition Width="3" />
                                             <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
 
                                         <!--  Workout Details  -->
@@ -194,10 +195,21 @@
                                                 Text="{Binding Notes}"
                                                 TextWrapping="Wrap" />
                                         </StackPanel>
+
+                                        <!--  Edit Button with Updated Spacing  -->
+                                        <Button
+                                            Grid.Column="7"
+                                            Margin="10,0,5,0"
+                                            HorizontalAlignment="Right"
+                                            Command="{Binding DataContext.EditWorkoutCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                                            CommandParameter="{Binding}"
+                                            Content="Edit"
+                                            Style="{StaticResource EditButtonStyle}" />
                                     </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
+
                     </ScrollViewer>
                 </StackPanel>
             </Border>
