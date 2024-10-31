@@ -123,6 +123,8 @@ namespace Fit_Track_App.ViewModels
             .ToList();
         }
 
+
+
         private bool CanAddWorkout()
         {
             return NewWorkoutDuration > 0 && NewWorkoutCalories > 0;

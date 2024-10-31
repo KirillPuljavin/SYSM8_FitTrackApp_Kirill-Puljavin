@@ -170,7 +170,6 @@
             <Setter Property="Padding" Value="9" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="Background" Value="White" />
-            <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
             <Setter Property="BorderThickness" Value="0.9" />
             <Setter Property="Margin" Value="4.5,1.8" />
         </Style>
