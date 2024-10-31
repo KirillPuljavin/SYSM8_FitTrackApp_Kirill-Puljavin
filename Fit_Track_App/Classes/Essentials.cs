@@ -57,62 +57,6 @@ namespace Fit_Track_App.Classes
         }
     }
 
-    public class BooleanToVisibilityConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            bool boolValue = (bool)value;
-
-            if (parameter != null && parameter.ToString() == "Invert")
-                boolValue = !boolValue;
-
-            return boolValue ? Visibility.Visible : Visibility.Collapsed;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            Visibility visibility = (Visibility)value;
-
-            bool result = visibility == Visibility.Visible;
-
-            if (parameter != null && parameter.ToString() == "Invert")
-                result = !result;
-
-            return result;
-        }
-    }
-
-    public class StringToVisibilityConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return string.IsNullOrWhiteSpace(value as string) ? Visibility.Collapsed : Visibility.Visible;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class ScaleConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value is double windowSize)
-            {
-                // Example scaling formula to ensure responsiveness
-                return windowSize > 800 ? 1.0 : windowSize / 800.0;
-            }
-            return 1.0;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
     internal static class Validator
     {
         public static bool ValidateUserName(string userName, out string errorMessage)
@@ -160,6 +104,43 @@ namespace Fit_Track_App.Classes
             }
             errorMessage = string.Empty;
             return true;
+        }
+    }
+
+    public class BooleanToVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            bool boolValue = (bool)value;
+
+            if (parameter != null && parameter.ToString() == "Invert")
+                boolValue = !boolValue;
+
+            return boolValue ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            Visibility visibility = (Visibility)value;
+
+            bool result = visibility == Visibility.Visible;
+
+            if (parameter != null && parameter.ToString() == "Invert")
+                result = !result;
+
+            return result;
+        }
+    }
+    public class StringToVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return string.IsNullOrWhiteSpace(value as string) ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 }
