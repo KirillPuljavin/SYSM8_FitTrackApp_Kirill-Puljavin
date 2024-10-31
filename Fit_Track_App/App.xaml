@@ -41,6 +41,22 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="0">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="{StaticResource DarkerRedBrush}" />
@@ -50,6 +66,34 @@
                     <Setter Property="Background" Value="{StaticResource DarkerRedBrush}" />
                     <Setter Property="BorderBrush" Value="#8B0000" />
                 </Trigger>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                To="1.1"
+                                Duration="0:0:0.2" />
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                To="1.1"
+                                Duration="0:0:0.2" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                To="1.0"
+                                Duration="0:0:0.2" />
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                To="1.0"
+                                Duration="0:0:0.2" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
             </Style.Triggers>
         </Style>
 

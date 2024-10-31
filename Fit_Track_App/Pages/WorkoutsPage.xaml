@@ -31,12 +31,18 @@
 
                     <!--  Manage Account Button  -->
                     <Button
-                        Width="200"
-                        Margin="0,20,0,10"
                         HorizontalAlignment="Center"
                         Command="{Binding OpenUserDetailsCommand}"
                         Content="Manage Account"
                         Style="{StaticResource ButtonStyle}" />
+
+                    <!--  Info Button  -->
+                    <Button
+                        HorizontalAlignment="Center"
+                        Command="{Binding InfoCommand}"
+                        Content="Info"
+                        Style="{StaticResource ButtonStyle}" />
+
 
                     <Rectangle
                         Height="1"
