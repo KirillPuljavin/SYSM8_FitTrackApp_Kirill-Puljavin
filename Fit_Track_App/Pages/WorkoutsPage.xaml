@@ -10,6 +10,7 @@
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
+        <!--  Welcome Message and Filter Menu  -->
         <Grid Grid.Column="0" HorizontalAlignment="Center">
             <Border
                 MaxWidth="500"
@@ -20,17 +21,35 @@
                 BorderThickness="1"
                 CornerRadius="10">
                 <StackPanel>
+                    <!--  Welcome Message  -->
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="24"
+                        FontWeight="Bold"
+                        Foreground="{StaticResource CrimsonBrush}"
+                        Text="Welcome, {Binding LoggedInUsername}" />
+
+                    <!--  Manage Account Button  -->
                     <Button
-                        Width="100"
-                        Margin="0,0,0,10"
-                        HorizontalAlignment="Left"
-                        Command="{Binding BackCommand}"
-                        Content="Back"
+                        Width="200"
+                        Margin="0,20,0,10"
+                        HorizontalAlignment="Center"
+                        Command="{Binding OpenUserDetailsCommand}"
+                        Content="Manage Account"
                         Style="{StaticResource ButtonStyle}" />
+
+                    <Rectangle
+                        Height="1"
+                        Margin="0,10,0,20"
+                        HorizontalAlignment="Stretch"
+                        Fill="Black" />
+
+                    <!--  Filter Workouts Section  -->
                     <TextBlock
                         HorizontalAlignment="Center"
                         Style="{StaticResource SubtitleTextBlockStyle}"
                         Text="Filter Workouts" />
+
                     <StackPanel Margin="0,10" Orientation="Vertical">
                         <Label Content="Workout Type" Style="{StaticResource InputLabel}" />
                         <ComboBox
@@ -40,18 +59,22 @@
                             SelectedValuePath="Value"
                             Style="{StaticResource ComboBoxStyle}" />
                     </StackPanel>
+
                     <StackPanel Margin="0,10" Orientation="Vertical">
                         <Label Content="Start Date" Style="{StaticResource InputLabel}" />
                         <DatePicker SelectedDate="{Binding FilterStartDate}" Style="{StaticResource DatePickerStyle}" />
                     </StackPanel>
+
                     <StackPanel Margin="0,10" Orientation="Vertical">
                         <Label Content="End Date" Style="{StaticResource InputLabel}" />
                         <DatePicker SelectedDate="{Binding FilterEndDate}" Style="{StaticResource DatePickerStyle}" />
                     </StackPanel>
+
                     <StackPanel Margin="0,10" Orientation="Vertical">
                         <Label Content="Minimum Duration (Minutes)" Style="{StaticResource InputLabel}" />
                         <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding FilterDuration}" />
                     </StackPanel>
+
                     <Button
                         Margin="0,20,0,0"
                         Command="{Binding ApplyFiltersCommand}"
@@ -61,12 +84,14 @@
             </Border>
         </Grid>
 
+        <!--  Workout List and Fields Section  -->
         <Grid Grid.Column="1" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
+            <!--  Workout List Section  -->
             <Border
                 Grid.Row="0"
                 Margin="0,0,0,10"
@@ -80,6 +105,7 @@
                         HorizontalAlignment="Center"
                         Style="{StaticResource SubtitleTextBlockStyle}"
                         Text="Workout List" />
+
                     <ScrollViewer Height="Auto" VerticalScrollBarVisibility="Auto">
                         <ListBox
                             ItemContainerStyle="{StaticResource ListBoxItemStyle}"
@@ -98,6 +124,7 @@
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
 
+                                        <!--  Workout Type and Date  -->
                                         <StackPanel Grid.Column="0" Margin="5,0">
                                             <TextBlock
                                                 FontSize="14"
@@ -110,12 +137,14 @@
                                                 Text="{Binding Date, StringFormat='{}{0:yyyy-MM-dd}'}" />
                                         </StackPanel>
 
+                                        <!--  Vertical line separator  -->
                                         <Rectangle
                                             Grid.Column="1"
                                             Width="2"
                                             VerticalAlignment="Stretch"
                                             Fill="{StaticResource LightGrayBrush}" />
 
+                                        <!--  Duration  -->
                                         <StackPanel Grid.Column="2" Margin="5,0">
                                             <TextBlock
                                                 FontSize="12"
@@ -125,12 +154,14 @@
                                             <TextBlock FontSize="12" Text="{Binding Duration.TotalMinutes, StringFormat='{}{0} mins'}" />
                                         </StackPanel>
 
+                                        <!--  Vertical line separator  -->
                                         <Rectangle
                                             Grid.Column="3"
                                             Width="2"
                                             VerticalAlignment="Stretch"
                                             Fill="{StaticResource LightGrayBrush}" />
 
+                                        <!--  Calories  -->
                                         <StackPanel Grid.Column="4" Margin="5,0">
                                             <TextBlock
                                                 FontSize="12"
@@ -140,12 +171,14 @@
                                             <TextBlock FontSize="12" Text="{Binding CaloriesBurned}" />
                                         </StackPanel>
 
+                                        <!--  Vertical line separator  -->
                                         <Rectangle
                                             Grid.Column="5"
                                             Width="2"
                                             VerticalAlignment="Stretch"
                                             Fill="{StaticResource LightGrayBrush}" />
 
+                                        <!--  Notes  -->
                                         <StackPanel Grid.Column="6" Margin="5,0">
                                             <TextBlock
                                                 FontSize="12"
@@ -165,6 +198,7 @@
                 </StackPanel>
             </Border>
 
+            <!--  Add/Remove Workout Fields Section  -->
             <Border
                 Grid.Row="1"
                 Margin="0,10,0,0"
@@ -185,6 +219,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
+                    <!--  First Row  -->
                     <StackPanel
                         Grid.Row="0"
                         Grid.Column="0"
@@ -203,6 +238,7 @@
                         <DatePicker SelectedDate="{Binding NewWorkoutDate}" Style="{StaticResource DatePickerStyle}" />
                     </StackPanel>
 
+                    <!--  Second Row  -->
                     <StackPanel
                         Grid.Row="1"
                         Grid.Column="0"
@@ -218,6 +254,7 @@
                         <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding NewWorkoutDuration}" />
                     </StackPanel>
 
+                    <!--  Third Row - Notes spanning both columns with fixed width  -->
                     <StackPanel
                         Grid.Row="2"
                         Grid.Column="0"
@@ -227,6 +264,7 @@
                         <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding NewWorkoutNotes}" />
                     </StackPanel>
 
+                    <!--  Fourth Row - Buttons centered below fields  -->
                     <StackPanel
                         Grid.Row="3"
                         Grid.Column="0"

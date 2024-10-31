@@ -1,4 +1,5 @@
 ﻿using Fit_Track_App.Classes;
+using Fit_Track_App.Pages;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -40,9 +41,10 @@ namespace Fit_Track_App.ViewModels
             }
         }
 
+        public string LoggedInUsername { get; } = "Username"; // Bind the actual username here
+
         public DateTime NewWorkoutDate { get; set; } = DateTime.Today;
         public WorkoutType NewWorkoutType { get; set; } = WorkoutType.Cardio;
-
         public int NewWorkoutDuration { get; set; }
         public int NewWorkoutCalories { get; set; }
         public string NewWorkoutNotes { get; set; }
@@ -101,6 +103,7 @@ namespace Fit_Track_App.ViewModels
         public ICommand AddWorkoutCommand { get; }
         public ICommand RemoveWorkoutCommand { get; }
         public ICommand ApplyFiltersCommand { get; }
+        public ICommand OpenUserDetailsCommand { get; }
 
         public bool CanEditOrRemove => SelectedWorkout != null;
 
@@ -109,12 +112,12 @@ namespace Fit_Track_App.ViewModels
             AddWorkoutCommand = new RelayCommand(_ => AddWorkout(), _ => CanAddWorkout());
             RemoveWorkoutCommand = new RelayCommand(_ => RemoveWorkout(), _ => CanEditOrRemove);
             ApplyFiltersCommand = new RelayCommand(_ => ApplyFilters());
+            OpenUserDetailsCommand = new RelayCommand(_ => OpenUserDetailsPage());
 
             _filteredWorkouts = CollectionViewSource.GetDefaultView(Workouts);
             _filteredWorkouts.Filter = FilterWorkouts;
 
             WorkoutTypes = Enum.GetValues(typeof(WorkoutType)).Cast<WorkoutType>();
-
             WorkoutTypesWithAllOption = new List<WorkoutTypeOption>
             {
                 new WorkoutTypeOption { DisplayName = "All", Value = null }
@@ -122,8 +125,6 @@ namespace Fit_Track_App.ViewModels
             .Concat(WorkoutTypes.Select(wt => new WorkoutTypeOption { DisplayName = wt.ToString(), Value = wt }))
             .ToList();
         }
-
-
 
         private bool CanAddWorkout()
         {
@@ -189,6 +190,14 @@ namespace Fit_Track_App.ViewModels
                 return matchesType && matchesStartDate && matchesEndDate && matchesDuration;
             }
             return false;
+        }
+
+        private void OpenUserDetailsPage()
+        {
+            if (Application.Current.MainWindow is MainWindow window)
+            {
+                window.MainFrame.Navigate(new UserDetailsPage());
+            }
         }
     }
 }
