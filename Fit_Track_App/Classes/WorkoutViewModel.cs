@@ -8,11 +8,26 @@ namespace Fit_Track_App.ViewModels
         private static WorkoutViewModel _instance;
         public static WorkoutViewModel Instance => _instance ??= new WorkoutViewModel();
 
-        public ObservableCollection<DataManagement.Workout> Workouts { get; }
+        internal ObservableCollection<DataManagement.Workout> Workouts { get; }
 
         private WorkoutViewModel()
         {
             Workouts = new ObservableCollection<DataManagement.Workout>();
+            LoadWorkouts();
+        }
+
+        private DataManagement.Workout[] preloadedWorkouts = new DataManagement.Workout[]
+        {
+            new DataManagement.CardioWorkout(System.DateTime.Now, "Cardio", new System.TimeSpan(0, 30, 0), 200, "Preloaded Cardio Workout"),
+            new DataManagement.StrengthWorkout(System.DateTime.Now, "Strength", new System.TimeSpan(1, 0, 0), 300, "Preloaded Strength Workout")
+        };
+        public void LoadWorkouts()
+        {
+            Workouts.Clear();
+            foreach (var workout in preloadedWorkouts)
+            {
+                Workouts.Add(workout);
+            }
         }
 
         public void AddWorkout(DateTime date, WorkoutType type, TimeSpan duration, int caloriesBurned, string notes)

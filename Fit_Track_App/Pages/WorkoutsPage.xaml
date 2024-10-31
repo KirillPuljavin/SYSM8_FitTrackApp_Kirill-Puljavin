@@ -27,7 +27,7 @@
                         FontSize="24"
                         FontWeight="Bold"
                         Foreground="{StaticResource CrimsonBrush}"
-                        Text="Welcome, {Binding LoggedInUsername}" />
+                        Text="{Binding LoggedInUsername}" />
 
                     <!--  Manage Account Button  -->
                     <Button

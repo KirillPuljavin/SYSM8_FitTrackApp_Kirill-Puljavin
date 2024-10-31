@@ -1,4 +1,6 @@
-﻿namespace Fit_Track_App.Classes
+﻿using System.Collections.ObjectModel;
+
+namespace Fit_Track_App.Classes
 {
     internal static class DataManagement
     {
@@ -13,6 +15,7 @@
 
         public class User : Person
         {
+            public ObservableCollection<Workout> Workouts { get; } = new ObservableCollection<Workout>();
             public string Country { get; set; }
             public bool IsAdmin { get; set; }
             public string TwoFACode { get; set; }

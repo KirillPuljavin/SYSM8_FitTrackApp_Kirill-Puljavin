@@ -41,13 +41,14 @@ namespace Fit_Track_App.ViewModels
             }
         }
 
-        public string LoggedInUsername { get; } = "Username"; // Bind the actual username here
+        public string LoggedInUsername { get; } = UserViewModel.Instance.UserName;
 
         public DateTime NewWorkoutDate { get; set; } = DateTime.Today;
         public WorkoutType NewWorkoutType { get; set; } = WorkoutType.Cardio;
         public int NewWorkoutDuration { get; set; }
         public int NewWorkoutCalories { get; set; }
         public string NewWorkoutNotes { get; set; }
+
 
         public IEnumerable<WorkoutType> WorkoutTypes { get; }
         public IEnumerable<WorkoutTypeOption> WorkoutTypesWithAllOption { get; }
