@@ -41,22 +41,6 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="Cursor" Value="Hand" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="0">
-                            <ContentPresenter
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                TextElement.Foreground="{TemplateBinding Foreground}" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="{StaticResource DarkerRedBrush}" />
@@ -66,34 +50,6 @@
                     <Setter Property="Background" Value="{StaticResource DarkerRedBrush}" />
                     <Setter Property="BorderBrush" Value="#8B0000" />
                 </Trigger>
-                <EventTrigger RoutedEvent="Button.MouseEnter">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation
-                                Storyboard.TargetProperty="RenderTransform.ScaleX"
-                                To="1.1"
-                                Duration="0:0:0.2" />
-                            <DoubleAnimation
-                                Storyboard.TargetProperty="RenderTransform.ScaleY"
-                                To="1.1"
-                                Duration="0:0:0.2" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="Button.MouseLeave">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation
-                                Storyboard.TargetProperty="RenderTransform.ScaleX"
-                                To="1.0"
-                                Duration="0:0:0.2" />
-                            <DoubleAnimation
-                                Storyboard.TargetProperty="RenderTransform.ScaleY"
-                                To="1.0"
-                                Duration="0:0:0.2" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
             </Style.Triggers>
         </Style>
 
@@ -103,6 +59,8 @@
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="0,4,0,4" />
+            <!--  Consistent margin for uniform spacing  -->
         </Style>
 
         <!--  Unified TextBox Style  -->
@@ -114,6 +72,16 @@
             <Setter Property="BorderThickness" Value="1.8" />
             <Setter Property="Width" Value="360" />
             <Setter Property="Padding" Value="9" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
+                </Trigger>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
+                    <Setter Property="Foreground" Value="{StaticResource BlackBrush}" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <!--  PasswordBox Style  -->
@@ -124,6 +92,7 @@
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
             <Setter Property="BorderThickness" Value="1.8" />
             <Setter Property="Width" Value="360" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="Padding" Value="9" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -144,6 +113,7 @@
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
             <Setter Property="BorderThickness" Value="1.8" />
             <Setter Property="Padding" Value="11" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="Width" Value="360" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -160,7 +130,9 @@
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
             <Setter Property="BorderThickness" Value="1.8" />
             <Setter Property="Width" Value="360" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="Padding" Value="9" />
+            <!--  Consistent corner radius  -->
         </Style>
 
         <!--  Title Label Style  -->
@@ -218,11 +190,12 @@
             <Setter Property="HorizontalAlignment" Value="Left" />
         </Style>
 
-        <!--  ListBoxItem Style  -->
-        <Style x:Key="WokroutGridStyle" TargetType="Grid">
+        <!--  Workout Grid Style  -->
+        <Style x:Key="WorkoutGridStyle" TargetType="Grid">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="Margin" Value="100,100" />
+            <Setter Property="Margin" Value="10,10" />
+            <!--  Reduced margin for more uniform layout spacing  -->
         </Style>
     </Application.Resources>
 </Application>
