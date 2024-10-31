@@ -7,12 +7,10 @@ namespace Fit_Track_App.ViewModels
     {
         private static WorkoutViewModel _instance;
         public static WorkoutViewModel Instance => _instance ??= new WorkoutViewModel();
-
-        internal ObservableCollection<DataManagement.Workout> Workouts { get; }
+        public ObservableCollection<DataManagement.Workout> Workouts => UserViewModel.Instance.LoggedInUser?.Workouts;
 
         private WorkoutViewModel()
         {
-            Workouts = new ObservableCollection<DataManagement.Workout>();
             LoadWorkouts();
         }
 
@@ -39,7 +37,7 @@ namespace Fit_Track_App.ViewModels
                 _ => throw new ArgumentException("Invalid workout type")
             };
 
-            Workouts.Add(newWorkout);
+            Workouts?.Add(newWorkout);
         }
 
         public void RemoveWorkout(DataManagement.Workout workout)
