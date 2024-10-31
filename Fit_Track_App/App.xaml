@@ -118,7 +118,7 @@
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
             <Setter Property="CornerRadius" Value="15" />
-            <Setter Property="Margin" Value="20,30,20,0" />
+            <Setter Property="Margin" Value="30" />
             <Setter Property="Padding" Value="30" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />

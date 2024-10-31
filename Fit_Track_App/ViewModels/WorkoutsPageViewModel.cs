@@ -105,6 +105,7 @@ namespace Fit_Track_App.ViewModels
         public ICommand RemoveWorkoutCommand { get; }
         public ICommand ApplyFiltersCommand { get; }
         public ICommand OpenUserDetailsCommand { get; }
+        public ICommand InfoCommand { get; }
 
         public bool CanEditOrRemove => SelectedWorkout != null;
 
@@ -114,6 +115,7 @@ namespace Fit_Track_App.ViewModels
             RemoveWorkoutCommand = new RelayCommand(_ => RemoveWorkout(), _ => CanEditOrRemove);
             ApplyFiltersCommand = new RelayCommand(_ => ApplyFilters());
             OpenUserDetailsCommand = new RelayCommand(_ => OpenUserDetailsPage());
+            InfoCommand = new RelayCommand(_ => ShowInfo());
 
             _filteredWorkouts = CollectionViewSource.GetDefaultView(Workouts);
             _filteredWorkouts.Filter = FilterWorkouts;
@@ -199,6 +201,19 @@ namespace Fit_Track_App.ViewModels
             {
                 window.MainFrame.Navigate(new UserDetailsPage());
             }
+        }
+        private void ShowInfo()
+        {
+            string infoMessage = "Welcome to Fit Tracker PRO!\n\n" +
+                                 "In the left sidebar, you can filter your workouts list or access your account management features. " +
+                                 "Simply select options to narrow down your workout records or click 'Manage Account' to view and update your profile.\n\n" +
+                                 "The main section displays your workout list, where you can view details of each workout. " +
+                                 "Click on any workout in the list to select it.\n\n" +
+                                 "To add a new workout, fill in the fields below the list and click 'Add Workout'. " +
+                                 "To remove a workout, select it from the list and click 'Remove Workout'.\n\n" +
+                                 "Enjoy tracking your fitness progress with Fit Tracker PRO!";
+
+            MessageBox.Show(infoMessage, "App Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

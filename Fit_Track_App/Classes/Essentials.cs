@@ -140,15 +140,16 @@ namespace Fit_Track_App.Classes
 
         public static bool ValidatePassword(string password, out string errorMessage)
         {
-            if (string.IsNullOrWhiteSpace(password) || password.Length < 4 ||
-                !Regex.IsMatch(password, @"^(?=.*[a-zA-Z])(?=.*\d).{4,}$"))
+            if (string.IsNullOrWhiteSpace(password) || password.Length < 8 ||
+                !Regex.IsMatch(password, @"^(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"))
             {
-                errorMessage = "Password must be at least 4 characters, with one letter and one number.";
+                errorMessage = "Lösenordet måste uppfylla särskilda krav (minst 8 tecken, minst en siffra och ett specialtecken).";
                 return false;
             }
             errorMessage = string.Empty;
             return true;
         }
+
 
         public static bool ValidateConfirmPassword(string password, string confirmPassword, out string errorMessage)
         {
