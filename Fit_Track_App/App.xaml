@@ -7,6 +7,12 @@
     <Application.Resources>
         <local:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
         <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <DropShadowEffect
+            x:Key="DropShadowEffect"
+            BlurRadius="8"
+            Opacity="0.25"
+            ShadowDepth="2" />
+
 
         <!--  Colors  -->
         <Color x:Key="CrimsonColor">#DC143C</Color>
@@ -29,9 +35,10 @@
             <Setter Property="FontSize" Value="20" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Height" Value="54" />
+            <Setter Property="Panel.ZIndex" Value="10" />
             <Setter Property="Width" Value="225" />
-            <Setter Property="Margin" Value="0,9" />
-            <Setter Property="Padding" Value="9" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="BorderBrush" Value="#8B0000" />
             <Setter Property="BorderThickness" Value="1.8" />
             <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
@@ -104,8 +111,20 @@
             <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="Margin" Value="0,4,0,4" />
-            <!--  Consistent margin for uniform spacing  -->
         </Style>
+
+        <!--  Container  -->
+        <Style x:Key="Container" TargetType="Border">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="Margin" Value="20,30,20,0" />
+            <Setter Property="Padding" Value="30" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />
+        </Style>
+
+        <!--  INPUT FIELDS  -->
 
         <!--  Unified TextBox Style  -->
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
@@ -114,9 +133,9 @@
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
             <Setter Property="BorderThickness" Value="1.8" />
-            <Setter Property="Width" Value="360" />
+            <Setter Property="MinWidth" Value="300" />
             <Setter Property="Padding" Value="9" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
@@ -135,8 +154,8 @@
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
             <Setter Property="BorderThickness" Value="1.8" />
-            <Setter Property="Width" Value="360" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="MinWidth" Value="300" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Padding" Value="9" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -157,8 +176,8 @@
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
             <Setter Property="BorderThickness" Value="1.8" />
             <Setter Property="Padding" Value="11" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="Width" Value="360" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="MinWidth" Value="300" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="BorderBrush" Value="{StaticResource CrimsonBrush}" />
@@ -173,11 +192,12 @@
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource LightGrayBrush}" />
             <Setter Property="BorderThickness" Value="1.8" />
-            <Setter Property="Width" Value="360" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="MinWidth" Value="300" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Padding" Value="9" />
-            <!--  Consistent corner radius  -->
         </Style>
+
+        <!--  OTHER  -->
 
         <!--  Title Label Style  -->
         <Style x:Key="TitleLabelStyle" TargetType="Label">
@@ -226,6 +246,7 @@
             <Setter Property="HorizontalAlignment" Value="Left" />
         </Style>
 
+        <!--  Medium Label Styles  -->
         <Style x:Key="MediumLabelStyle" TargetType="Label">
             <Setter Property="FontSize" Value="16" />
             <Setter Property="FontWeight" Value="Normal" />
@@ -238,7 +259,6 @@
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Stretch" />
             <Setter Property="Margin" Value="10,10" />
-            <!--  Reduced margin for more uniform layout spacing  -->
         </Style>
     </Application.Resources>
 </Application>

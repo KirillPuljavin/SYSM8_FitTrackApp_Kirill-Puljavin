@@ -20,6 +20,7 @@ namespace Fit_Track_App.ViewModels
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
         public string UserName { get; set; }
+        public bool IsAdmin { get; set; }
 
         private DataManagement.User _loggedInUser;
         internal DataManagement.User LoggedInUser
@@ -35,28 +36,24 @@ namespace Fit_Track_App.ViewModels
             get => _userNameError;
             set { _userNameError = value; OnPropertyChanged(nameof(UserNameError)); }
         }
-
         private string _emailError;
         public string EmailError
         {
             get => _emailError;
             set { _emailError = value; OnPropertyChanged(nameof(EmailError)); }
         }
-
         private string _passwordError;
         public string PasswordError
         {
             get => _passwordError;
             set { _passwordError = value; OnPropertyChanged(nameof(PasswordError)); }
         }
-
         private string _confirmPasswordError;
         public string ConfirmPasswordError
         {
             get => _confirmPasswordError;
             set { _confirmPasswordError = value; OnPropertyChanged(nameof(ConfirmPasswordError)); }
         }
-
         private string _countryError;
         public string CountryError
         {
@@ -75,7 +72,7 @@ namespace Fit_Track_App.ViewModels
             {
                 new DataManagement.User("admin", "admin@fittrack.com", "password", "Sweden", true),
                 new DataManagement.User("user", "user@fittrack.com", "password", "Sweden", false),
-                new DataManagement.User("qwe123", "thelegendaryyouth@gmail.com", "qwe123", "Sweden", true)
+                new DataManagement.User("qwe123", "thelegendaryyouth@gmail.com", "qwe123", "Sweden", false)
             };
 
             RegisterCommand = new RelayCommand(_ => Register());

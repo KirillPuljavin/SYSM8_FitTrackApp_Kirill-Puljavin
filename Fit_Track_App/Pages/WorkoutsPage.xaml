@@ -14,12 +14,8 @@
         <Grid Grid.Column="0" HorizontalAlignment="Center">
             <Border
                 MaxWidth="500"
-                Margin="10"
-                Padding="20"
-                Background="White"
                 BorderBrush="{StaticResource CrimsonBrush}"
-                BorderThickness="1"
-                CornerRadius="10">
+                Style="{StaticResource Container}">
                 <StackPanel>
                     <!--  Welcome Message  -->
                     <TextBlock
@@ -100,12 +96,8 @@
             <!--  Workout List Section  -->
             <Border
                 Grid.Row="0"
-                Margin="0,0,0,10"
-                Padding="10"
-                Background="White"
                 BorderBrush="{StaticResource CrimsonBrush}"
-                BorderThickness="1"
-                CornerRadius="10">
+                Style="{StaticResource Container}">
                 <StackPanel>
                     <TextBlock
                         HorizontalAlignment="Center"
@@ -207,12 +199,8 @@
             <!--  Add/Remove Workout Fields Section  -->
             <Border
                 Grid.Row="1"
-                Margin="0,10,0,0"
-                Padding="20"
-                Background="White"
                 BorderBrush="{StaticResource CrimsonBrush}"
-                BorderThickness="1"
-                CornerRadius="10">
+                Style="{StaticResource Container}">
                 <Grid MaxWidth="800" HorizontalAlignment="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
