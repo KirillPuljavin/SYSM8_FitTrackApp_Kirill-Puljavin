@@ -2,7 +2,7 @@
 
 ![Main Page](screenshots/main.png)
 
-Fit Tracker PRO is a fitness tracking desktop application developed in C# and WPF, built as part of a portfolio project to showcase my skills in desktop application development and UI design. The app allows users to register, log in, manage workouts (cardio and strength), and update their account details. Special features include filtering workouts, 2FA for password reset, and dynamic data binding via the MVVM architecture.
+Fit Tracker PRO is a fitness tracking desktop application developed in C# and WPF as part of a school project with a tight deadline to showcase my skills in desktop application development and UI design. The app allows users to register, log in, manage workouts (cardio and strength), and update their account details. Special features include filtering workouts, 2FA for password reset, and dynamic data binding via the MVVM architecture.
 
 ## Getting Started
 
@@ -71,7 +71,7 @@ This project demonstrates my ability to build a feature-rich desktop application
 
 # Fit Tracker PRO – Fitness Tracker Desktopapp (Svenska)
 
-Fit Tracker PRO är en desktopapplikation utvecklad i C# och WPF, skapad som en del av en portfölj för att visa mina färdigheter inom desktoputveckling och UI-design. Applikationen låter användare registrera sig, logga in, hantera träningspass (kondition och styrka) samt uppdatera sina kontouppgifter. Särskilda funktioner inkluderar filtrering av träningspass, 2FA för lösenordsåterställning och dynamisk datavisning via MVVM-arkitektur.
+Fit Tracker PRO är en fitness tracking desktopapplikation utvecklad i C# och WPF som en del av ett skolprojekt med kort tidsram för att visa upp mina färdigheter inom desktoputveckling och UI-design. Applikationen låter användare registrera sig, logga in, hantera träningspass (kondition och styrka) och uppdatera sina kontouppgifter. Särskilda funktioner inkluderar filtrering av träningspass, 2FA för lösenordsåterställning och dynamisk datavisning via MVVM-arkitektur.
 
 ## Kom igång
 
